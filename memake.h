@@ -4,11 +4,11 @@
 #include <iostream>
 #include "color.h"
 
-class Application
+class Memake
 {
     public:
-        Application(int width, int height);
-        ~Application();
+        Memake(int width, int height);
+        ~Memake();
 
         void Update();
         void Draw();

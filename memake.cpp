@@ -1,6 +1,6 @@
-#include "application.h"
+#include "memake.h"
 
-Application::Application(int width, int height)
+Memake::Memake(int width, int height)
 {
     SDL_Init(SDL_INIT_VIDEO);
 
@@ -14,14 +14,14 @@ Application::Application(int width, int height)
     SDL_RenderPresent(m_renderer);
 }
 
-Application::~Application()
+Memake::~Memake()
 {
     SDL_DestroyRenderer(m_renderer);
     SDL_DestroyWindow(m_window);
     SDL_Quit();
 }
 
-void Application::Update()
+void Memake::Update()
 {
 
     bool keep_window_open = true;
@@ -40,12 +40,12 @@ void Application::Update()
     }
 }
 
-void Application::Draw()
+void Memake::Draw()
 {
     SDL_RenderPresent(m_renderer);
 }
 
-void Application::Circle(int cx, int cy, int r, SDL_Color color)
+void Memake::Circle(int cx, int cy, int r, SDL_Color color)
 {
     SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
 

@@ -1,11 +1,11 @@
-#include "application.h"
+#include "memake.h"
 #include <vector>
 
 int main()
 {
-    Application app(800, 800);
+    Memake mmk(800, 800);
 
-    app.Update();
+    mmk.Update();
 
     return 0;
 }
