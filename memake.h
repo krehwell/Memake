@@ -2,7 +2,11 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
+
 #include "color.h"
+#include "Vec2.h"
+#include "Rectangle.h"
+#include "Circle.h"
 
 using namespace std;
 
@@ -15,12 +19,12 @@ class Memake
         void Update();
         void Draw();
         void Clear();
+        void Compose();
 
     // private:
         SDL_Window   *window = NULL;
-        SDL_Surface  *surface;
+        SDL_Surface  *surface = NULL;
         SDL_Renderer *renderer = NULL;
-        SDL_Event     event;
 
         int w;
         int h;

@@ -22,6 +22,8 @@ void Memake::Update()
 {
     bool keep_window_open = true;
 
+    SDL_Event event;
+
     while (keep_window_open)
     {
         while (SDL_PollEvent(&event))
@@ -38,7 +40,23 @@ void Memake::Update()
                 }
             }
         }
+
+        SDL_SetRenderDrawColor(renderer, 0xF, 0x0, 0xF, 1);
+        for (int w = 0; w < 20 * 2; w++)
+        {
+            for (int h = 0; h < 20 * 2; h++)
+            {
+                int dx = 20 - w;
+                int dy = 20 - h;
+                if ((dx*dx + dy*dy) <= (20 * 20))
+                {
+                    SDL_RenderDrawPoint(renderer, 10 + dx, 10 + dy);
+                }
+            }
+        }
         Clear();
+
+        Compose();
 
         SDL_RenderPresent(renderer);
     }
@@ -48,4 +66,15 @@ void Memake::Clear()
 {
     SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
     SDL_RenderClear(renderer);
+}
+
+
+// Debugger
+void Memake::Compose()
+{
+    Rectangle rect(100, 100, 20, 70);
+    rect.Draw(renderer, red);
+
+    Circle circ(500, 300, 20);
+    circ.Draw(renderer, blue);
 }
