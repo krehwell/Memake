@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#include "color.h"
+#include "Color.h"
 #include "Vec2.h"
 #include "Rectangle.h"
 #include "Circle.h"

@@ -1,4 +1,4 @@
-#include "memake.h"
+#include "Memake.h"
 
 Memake::Memake(int width, int height, string window_name)
 {

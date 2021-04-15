@@ -1,4 +1,4 @@
-#include "memake.h"
+#include "Memake.h"
 #include <vector>
 
 int main()
