@@ -4,22 +4,24 @@
 #include <iostream>
 #include "color.h"
 
+using namespace std;
+
 class Memake
 {
     public:
-        Memake(int width, int height);
+        Memake(int width, int height, string window_name);
         ~Memake();
 
         void Update();
         void Draw();
-        void Circle(int cx, int cy, int r, SDL_Color color);
+        void Clear();
 
-    private:
-        SDL_Window   *m_window = NULL;
-        SDL_Surface  *m_window_surface;
-        SDL_Renderer *m_renderer = NULL;
-        SDL_Event     m_window_event;
+    // private:
+        SDL_Window   *window = NULL;
+        SDL_Surface  *surface;
+        SDL_Renderer *renderer = NULL;
+        SDL_Event     event;
 
-        int m_width;
-        int m_height;
+        int w;
+        int h;
 };

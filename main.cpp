@@ -3,7 +3,7 @@
 
 int main()
 {
-    Memake mmk(800, 800);
+    Memake mmk(800, 800, "memake");
 
     mmk.Update();
 

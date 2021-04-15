@@ -1,62 +1,51 @@
 #include "memake.h"
 
-Memake::Memake(int width, int height)
+Memake::Memake(int width, int height, string window_name)
 {
-    SDL_Init(SDL_INIT_VIDEO);
-
-    m_width = width;
-    m_height = height;
+    w = width;
+    h = height;
 
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_CreateWindowAndRenderer(width, height, 0, &m_window, &m_renderer);
-    SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 0);
-    SDL_RenderClear(m_renderer);
-    SDL_RenderPresent(m_renderer);
+    window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
+    renderer = SDL_CreateRenderer(window, -1, 0);
 }
 
 Memake::~Memake()
 {
-    SDL_DestroyRenderer(m_renderer);
-    SDL_DestroyWindow(m_window);
+    SDL_DestroyWindow(window);
+    SDL_FreeSurface(surface);
+    SDL_DestroyRenderer(renderer);
     SDL_Quit();
 }
 
 void Memake::Update()
 {
-
     bool keep_window_open = true;
 
-    while(keep_window_open)
+    while (keep_window_open)
     {
-        while(SDL_PollEvent(&m_window_event) > 0)
+        while (SDL_PollEvent(&event))
         {
-            switch(m_window_event.type)
+            if (event.type == SDL_QUIT)
             {
-                case SDL_QUIT:
+                keep_window_open = false;
+            }
+            else if (event.type == SDL_KEYDOWN)
+            {
+                if (event.key.keysym.sym == SDLK_ESCAPE)
+                {
                     keep_window_open = false;
-                    break;
+                }
             }
         }
+        Clear();
+
+        SDL_RenderPresent(renderer);
     }
 }
 
-void Memake::Draw()
+void Memake::Clear()
 {
-    SDL_RenderPresent(m_renderer);
-}
-
-void Memake::Circle(int cx, int cy, int r, SDL_Color color)
-{
-    SDL_SetRenderDrawColor(m_renderer, color.r, color.g, color.b, color.a);
-
-    for(int x=cx-r; x<=cx+r; x++)
-    {
-        for(int y=cy-r; y<=cy+r; y++)
-        {
-            if((std::pow(cy-y,2)+std::pow(cx-x,2)) <= std::pow(r,2))
-            {
-                SDL_RenderDrawPoint(m_renderer, x, y);
-            }
-        }
-    }
+    SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
+    SDL_RenderClear(renderer);
 }
