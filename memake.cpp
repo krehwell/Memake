@@ -5,7 +5,11 @@ Memake::Memake(int width, int height, string window_name)
     w = width;
     h = height;
 
-    SDL_Init(SDL_INIT_VIDEO);
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+        cout << "Error Initializing Memake";
+    }
+
     window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
@@ -23,6 +27,7 @@ void Memake::Update()
     bool keep_window_open = true;
 
     SDL_Event event;
+
 
     while (keep_window_open)
     {
@@ -75,6 +80,12 @@ void Memake::Compose()
     Rectangle rect(100, 100, 20, 70);
     rect.Draw(renderer, red);
 
-    Circle circ(500, 300, 20);
+    Circle circ(500, 300, 90);
     circ.Draw(renderer, blue);
+
+    Line line(550, 590, 590, 600);
+    line.Draw(renderer, fuchsia);
+
+    Ellipse ellipse(100, 500, 90, 20);
+    ellipse.Draw(renderer, purple);
 }

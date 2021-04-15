@@ -3,22 +3,24 @@
 #include "memake.h"
 #include "Utils.h"
 
-class Circle
+class Ellipse
 {
 public:
-    Circle(int x, int y, int radius)
+    Ellipse(int x, int y, int rx, int ry)
     {
         c_x = x;
         c_y = y;
-        r = radius;
+        r_x = rx;
+        r_y = ry;
     }
 
     void Draw(SDL_Renderer* renderer,  SDL_Color color)
     {
-        filledEllipseColor(renderer, c_x, c_y, r, r, color);
+        filledEllipseColor(renderer, c_x, c_y, r_x, r_y, color);
     }
 
     int c_x;
     int c_y;
-    int r;
+    int r_x;
+    int r_y;
 };

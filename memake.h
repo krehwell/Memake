@@ -7,6 +7,8 @@
 #include "Vec2.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Line.h"
+#include "Ellipse.h"
 
 using namespace std;
 
