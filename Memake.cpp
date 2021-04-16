@@ -84,8 +84,14 @@ void Memake::Compose()
     circ.Draw(renderer, blue);
 
     Line line(550, 590, 590, 600);
-    line.Draw(renderer, fuchsia);
+    line.Draw(renderer, pink);
 
     Ellipse ellipse(100, 500, 90, 20);
     ellipse.Draw(renderer, purple);
+
+    Dot dot(600, 60);
+    dot.Draw(renderer, yellowgreen);
+
+    Triangle triangle(50, 80, 60, 50, 90, 100);
+    triangle.Draw(renderer, yellow);
 }

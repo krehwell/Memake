@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <SDL2/SDL2_gfxPrimitives.h>
 
 #include "Color.h"
 #include "Vec2.h"
@@ -9,6 +10,8 @@
 #include "Circle.h"
 #include "Line.h"
 #include "Ellipse.h"
+#include "Dot.h"
+#include "Triangle.h"
 
 using namespace std;
 
