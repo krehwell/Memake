@@ -19,5 +19,5 @@ Well by default SDL never provides you function like to Draw Circle nor Ellipse 
 just Draw Rectangle and Draw Dot on screen. This Library can draw those 2D which SDL not provides by default. The more playground the more
 imagination can be expressed. Also hey, there is a premade colors too with `Colmk`.
   
-That's all the b**** I made, but what I actually want is just to graduate. Who knows that someday, somebody use this library
+That's all the words I made up so that it seems a perfect project like everyone's make, but what I actually want is just to graduate. Who knows that someday, somebody use this library
 to hack Elon Musk's Rocket.
