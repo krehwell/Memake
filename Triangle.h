@@ -18,7 +18,17 @@ public:
 
     void Draw(SDL_Renderer* renderer, SDL_Color color)
     {
-        filledTrigonColor(renderer, x1, y1, x2, y2, x3, y3, color);
+        int vx[3];
+        int vy[3];
+
+        vx[0]=x1;
+        vx[1]=x2;
+        vx[2]=x3;
+        vy[0]=y1;
+        vy[1]=y2;
+        vy[2]=y3;
+
+        filledPolygonColor(renderer,vx,vy,3,color);
     }
 
     int x1;

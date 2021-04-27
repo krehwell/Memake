@@ -7,13 +7,13 @@
  *
  */
 /* CACHE FOR TELLING THINGS IN DRAWING FOR POLYGON */
-static int *gfxPrimitivesPolyIntsGlobal = NULL;
-static int gfxPrimitivesPolyAllocatedGlobal = 0;
+static int *primitivesPolyIntsGlobal = NULL;
+static int primitivesPolyAllocatedGlobal = 0;
 
 
 /*
  *
- * UTILS
+ * GENERICS UTILS
  *
  */
 inline int vlineRGBA(SDL_Renderer *renderer, int x, int y1, int y2, SDL_Color color)
@@ -223,8 +223,8 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
 	/* Map polygon cache */
 	if ((polyInts==NULL) || (polyAllocated==NULL)) {
 		/* Use global cache */
-		gfxPrimitivesPolyInts = gfxPrimitivesPolyIntsGlobal;
-		gfxPrimitivesPolyAllocated = gfxPrimitivesPolyAllocatedGlobal;
+		gfxPrimitivesPolyInts = primitivesPolyIntsGlobal;
+		gfxPrimitivesPolyAllocated = primitivesPolyAllocatedGlobal;
 	} else {
 		/* Use local cache */
 		gfxPrimitivesPolyInts = *polyInts;
@@ -258,8 +258,8 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
 
 	/* Update cache variables */
 	if ((polyInts==NULL) || (polyAllocated==NULL)) {
-		gfxPrimitivesPolyIntsGlobal =  gfxPrimitivesPolyInts;
-		gfxPrimitivesPolyAllocatedGlobal = gfxPrimitivesPolyAllocated;
+		primitivesPolyIntsGlobal =  gfxPrimitivesPolyInts;
+		primitivesPolyAllocatedGlobal = gfxPrimitivesPolyAllocated;
 	} else {
 		*polyInts = gfxPrimitivesPolyInts;
 		*polyAllocated = gfxPrimitivesPolyAllocated;
@@ -333,19 +333,4 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
 inline int filledPolygonColor(SDL_Renderer * renderer, const int * vx, const int * vy, int n, SDL_Color color)
 {
 	return filledPolygonRGBAMT(renderer, vx, vy, n, color.r, color.g, color.b, color.a, NULL, NULL);
-}
-
-inline int filledTrigonColor(SDL_Renderer * renderer, int x1, int y1, int x2, int y2, int x3, int y3, SDL_Color color)
-{
-	int vx[3];
-	int vy[3];
-
-	vx[0]=x1;
-	vx[1]=x2;
-	vx[2]=x3;
-	vy[0]=y1;
-	vy[1]=y2;
-	vy[2]=y3;
-
-	return(filledPolygonColor(renderer,vx,vy,3,color));
 }
