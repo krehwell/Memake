@@ -12,6 +12,7 @@
 #include "Ellipse.h"
 #include "Dot.h"
 #include "Triangle.h"
+#include "Trapezoid.h"
 
 using namespace std;
 

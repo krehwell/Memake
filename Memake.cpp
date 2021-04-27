@@ -94,4 +94,7 @@ void Memake::Compose()
 
     Triangle triangle(50, 80, 60, 50, 90, 100);
     triangle.Draw(renderer, yellow);
+
+    Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
+    trapezoid.Draw(renderer, plum);
 }
