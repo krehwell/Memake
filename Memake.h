@@ -4,7 +4,7 @@
 #include <iostream>
 #include <SDL2/SDL2_gfxPrimitives.h>
 
-#include "Color.h"
+#include "Colmake.h"
 #include "Vec2.h"
 #include "Rectangle.h"
 #include "Circle.h"

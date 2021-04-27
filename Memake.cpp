@@ -78,23 +78,23 @@ void Memake::Clear()
 void Memake::Compose()
 {
     Rectangle rect(100, 100, 20, 70);
-    rect.Draw(renderer, red);
+    rect.Draw(renderer, Colmake.red);
 
     Circle circ(500, 300, 90);
-    circ.Draw(renderer, blue);
+    circ.Draw(renderer, Colmake.blue);
 
     Line line(550, 590, 590, 600);
-    line.Draw(renderer, pink);
+    line.Draw(renderer, Colmake.pink);
 
     Ellipse ellipse(100, 500, 90, 20);
-    ellipse.Draw(renderer, purple);
+    ellipse.Draw(renderer, Colmake.purple);
 
     Dot dot(600, 60);
-    dot.Draw(renderer, yellowgreen);
+    dot.Draw(renderer, Colmake.yellowgreen);
 
     Triangle triangle(50, 80, 60, 50, 90, 100);
-    triangle.Draw(renderer, yellow);
+    triangle.Draw(renderer, Colmake.yellow);
 
     Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
-    trapezoid.Draw(renderer, plum);
+    trapezoid.Draw(renderer, Colmake.plum);
 }
