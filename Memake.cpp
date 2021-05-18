@@ -34,6 +34,7 @@ Memake::~Memake()
     SDL_Quit();
 }
 
+void Memake::Update(void (*draw)())
 {
     bool keep_window_open = true;
 
@@ -72,6 +73,8 @@ Memake::~Memake()
         }
         Clear();
 
+        // Compose();
+        draw();
 
         SDL_RenderPresent(renderer);
     }

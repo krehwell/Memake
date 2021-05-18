@@ -22,6 +22,7 @@ class Memake
         Memake(int width, int height, string window_name);
         ~Memake();
 
+        void Update(void (*draw)());
         void Draw();
         void Clear();
         void Compose();
