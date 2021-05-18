@@ -14,6 +14,18 @@ Memake::Memake(int width, int height, string window_name)
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
 
+SDL_Renderer* Memake::GetRenderer(){
+    return renderer;
+}
+
+SDL_Window* Memake::GetWindow(){
+    return window;
+}
+
+SDL_Surface* Memake::GetSurface(){
+    return surface;
+}
+
 Memake::~Memake()
 {
     SDL_DestroyWindow(window);
@@ -22,7 +34,6 @@ Memake::~Memake()
     SDL_Quit();
 }
 
-void Memake::Update()
 {
     bool keep_window_open = true;
 
@@ -61,7 +72,6 @@ void Memake::Update()
         }
         Clear();
 
-        Compose();
 
         SDL_RenderPresent(renderer);
     }
@@ -74,27 +84,10 @@ void Memake::Clear()
 }
 
 
-// Debugger
-void Memake::Compose()
-{
-    Rectangle rect(100, 100, 20, 70);
-    rect.Draw(renderer, Colmake.red);
 
-    Circle circ(500, 300, 90);
-    circ.Draw(renderer, Colmake.blue);
 
-    Line line(550, 590, 590, 600);
-    line.Draw(renderer, Colmake.pink);
 
-    Ellipse ellipse(100, 500, 90, 20);
-    ellipse.Draw(renderer, Colmake.purple);
 
-    Dot dot(600, 60);
-    dot.Draw(renderer, Colmake.yellowgreen);
 
-    Triangle triangle(50, 80, 60, 50, 90, 100);
-    triangle.Draw(renderer, Colmake.yellow);
 
-    Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
-    trapezoid.Draw(renderer, Colmake.plum);
 }
