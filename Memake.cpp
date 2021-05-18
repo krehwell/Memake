@@ -40,7 +40,6 @@ void Memake::Update(void (*draw)())
 
     SDL_Event event;
 
-
     while (keep_window_open)
     {
         while (SDL_PollEvent(&event))
@@ -73,7 +72,7 @@ void Memake::Update(void (*draw)())
         }
         Clear();
 
-        // Compose();
+        // Compose(); // set this to active to use unwrapper wrap
         draw();
 
         SDL_RenderPresent(renderer);
@@ -116,9 +115,11 @@ void Memake::Compose()
     pol.Draw(renderer, Colmake.darkgoldenrod);
 }
 
+// ============================================================================
 /**
   * DRAW FUNCTION WRAPPER OF WRAPPER, user will only call this function
   */
+// ============================================================================
 
 void Memake::DrawRect(int x, int y, int width, int height, SDL_Color color) {
     Rectangle rect(x, y, width, height);
