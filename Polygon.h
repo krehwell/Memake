@@ -13,7 +13,7 @@ public:
 
     }
 
-    void Draw(SDL_Renderer* renderer, SDL_Color color)
+    void Draw(SDL_Renderer* renderer, Color color)
     {
         int vx[numOfEdges], vy[numOfEdges];
 

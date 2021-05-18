@@ -14,7 +14,8 @@ void draw()
     mmk.DrawTrapezoid(700, 695, 720, 650, 780, 644, 740, 740, Colmake.aquamarine);
 
     Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
-    mmk.DrawPolygon(a, 6, Colmake.cadetblue);
+    Color newColorTest = mmk.GenerateColor(204, 252, 203);
+    mmk.DrawPolygon(a, 6, newColorTest);
 }
 
 int main()

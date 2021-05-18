@@ -16,7 +16,7 @@ public:
         this->y3 = y3;
     }
 
-    void Draw(SDL_Renderer* renderer, SDL_Color color)
+    void Draw(SDL_Renderer* renderer, Color color)
     {
         int vx[3];
         int vy[3];

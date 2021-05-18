@@ -13,7 +13,7 @@ public:
         rect.h = height;
     }
 
-    void Draw(SDL_Renderer* renderer, SDL_Color color)
+    void Draw(SDL_Renderer* renderer, Color color)
     {
         SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 1);
         SDL_RenderFillRect(renderer, &rect);

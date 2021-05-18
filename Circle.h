@@ -13,7 +13,7 @@ public:
         r = radius;
     }
 
-    void Draw(SDL_Renderer* renderer,  SDL_Color color)
+    void Draw(SDL_Renderer* renderer, Color color)
     {
         filledEllipseColor(renderer, c_x, c_y, r, r, color);
     }
