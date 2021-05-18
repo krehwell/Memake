@@ -84,10 +84,67 @@ void Memake::Clear()
 }
 
 
+// Debugger | Testing
+// void Memake::Compose()
+// {
+//     Rectangle rect(100, 100, 20, 70);
+//     rect.Draw(renderer, Colmake.red);
+//
+//     Circle circ(500, 300, 90);
+//     circ.Draw(renderer, Colmake.blue);
+//
+//     Line line(550, 590, 590, 600);
+//     line.Draw(renderer, Colmake.pink);
+//
+//     Ellipse ellipse(100, 500, 90, 20);
+//     ellipse.Draw(renderer, Colmake.purple);
+//
+//     Dot dot(600, 60);
+//     dot.Draw(renderer, Colmake.yellowgreen);
+//
+//     Triangle triangle(50, 80, 60, 50, 90, 100);
+//     triangle.Draw(renderer, Colmake.yellow);
+//
+//     Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
+//     trapezoid.Draw(renderer, Colmake.plum);
+// }
 
+/**
+  * DRAW FUNCTION WRAPPER OF WRAPPER, user will only call this function
+  */
 
-
-
-
-
+void Memake::DrawRect(int x, int y, int width, int height, SDL_Color color) {
+    Rectangle rect(x, y, width, height);
+    rect.Draw(renderer, color);
 }
+
+void Memake::DrawCircle(int x, int y, int radius, SDL_Color color) {
+    Circle circ(x, y, radius);
+    circ.Draw(renderer, color);
+}
+
+void Memake::DrawLine(int x1, int y1, int x2, int y2, SDL_Color color) {
+    Line line(x1, y1, x2, y2);
+    line.Draw(renderer, color);
+}
+
+void Memake::DrawEllipse(int x, int y, int rx, int ry, SDL_Color color) {
+    Ellipse ellipse(x, y, rx, ry);
+    ellipse.Draw(renderer, color);
+}
+
+void Memake::DrawDot(int x, int y, SDL_Color color) {
+    Dot dot(x, y);
+    dot.Draw(renderer, color);
+}
+
+void Memake::DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, SDL_Color color) {
+    Triangle triangle(x1, y1, x2, y2, x3, y3);
+    triangle.Draw(renderer, color);
+}
+
+void Memake::DrawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, SDL_Color color) {
+    Trapezoid trapezoid(x1, y1, x2, y2, x3, y3, x4, y4);
+    trapezoid.Draw(renderer, color);
+}
+
