@@ -88,29 +88,33 @@ void Memake::Clear()
 
 
 // Debugger | Testing
-// void Memake::Compose()
-// {
-//     Rectangle rect(100, 100, 20, 70);
-//     rect.Draw(renderer, Colmake.red);
-//
-//     Circle circ(500, 300, 90);
-//     circ.Draw(renderer, Colmake.blue);
-//
-//     Line line(550, 590, 590, 600);
-//     line.Draw(renderer, Colmake.pink);
-//
-//     Ellipse ellipse(100, 500, 90, 20);
-//     ellipse.Draw(renderer, Colmake.purple);
-//
-//     Dot dot(600, 60);
-//     dot.Draw(renderer, Colmake.yellowgreen);
-//
-//     Triangle triangle(50, 80, 60, 50, 90, 100);
-//     triangle.Draw(renderer, Colmake.yellow);
-//
-//     Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
-//     trapezoid.Draw(renderer, Colmake.plum);
-// }
+void Memake::Compose()
+{
+    Rectangle rect(100, 100, 20, 70);
+    rect.Draw(renderer, Colmake.red);
+
+    Circle circ(500, 300, 90);
+    circ.Draw(renderer, Colmake.blue);
+
+    Line line(550, 590, 590, 600);
+    line.Draw(renderer, Colmake.pink);
+
+    Ellipse ellipse(100, 500, 90, 20);
+    ellipse.Draw(renderer, Colmake.purple);
+
+    Dot dot(600, 60);
+    dot.Draw(renderer, Colmake.yellowgreen);
+
+    Triangle triangle(50, 80, 60, 50, 90, 100);
+    triangle.Draw(renderer, Colmake.yellow);
+
+    Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
+    trapezoid.Draw(renderer, Colmake.plum);
+
+    Vec2 a[] = {{60, 20}, {50, 50}, {700, 400}, {100, 200}, {900, 200}, {400, 800}};
+    Polygon pol(a, 6);
+    pol.Draw(renderer, Colmake.darkgoldenrod);
+}
 
 /**
   * DRAW FUNCTION WRAPPER OF WRAPPER, user will only call this function
@@ -151,3 +155,7 @@ void Memake::DrawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x
     trapezoid.Draw(renderer, color);
 }
 
+void Memake::DrawPolygon(Vec2 * edgesPos, int numOfEdges, SDL_Color color) {
+    Polygon polygon(edgesPos, numOfEdges);
+    polygon.Draw(renderer, color);
+}
