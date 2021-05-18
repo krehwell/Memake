@@ -1,5 +1,4 @@
 #include "Memake.h"
-#include <vector>
 
 Memake mmk(800, 800, "memake");
 
@@ -17,6 +16,22 @@ void draw()
 
 int main()
 {
+    // vector utils testing
+    Vec2 a = {2, 4};
+    Vec2 b = {5, 2};
+    Vec2 c = a + b;
+
+    float length = c.GetLength();
+    Vec2 normalize = c.GetNormalized();
+
+    std::cout << c.x << std::endl;
+    std::cout << c.y << std::endl;
+
+    std::cout << length << std::endl;
+
+    std::cout << normalize.x << std::endl;
+    std::cout << normalize.y << std::endl;
+
     mmk.Update(draw);
 
     return 0;
