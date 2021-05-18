@@ -30,6 +30,8 @@ class Memake
         SDL_Renderer *GetRenderer();
         SDL_Window *GetWindow();
         SDL_Surface *GetSurface();
+        float GetDeltaTime();
+        float GetFPS();
 
         /**
          * Draw Rectangle with a given (x,y) and (height,width) values.
@@ -81,4 +83,6 @@ class Memake
 
         int w;
         int h;
+
+        int prevTime = 0, currentTime=0;
 };

@@ -34,11 +34,22 @@ Memake::~Memake()
     SDL_Quit();
 }
 
+float Memake::GetDeltaTime()
+{
+    prevTime = currentTime;
+    currentTime = SDL_GetTicks();
+    float deltatime = (currentTime - prevTime) / 1000.0f;
+    return deltatime;
+}
+
 void Memake::Update(void (*draw)())
 {
     bool keep_window_open = true;
 
     SDL_Event event;
+
+    // get delta time calc
+    std::cout << "deltatime: " << GetDeltaTime() << std::endl;
 
     while (keep_window_open)
     {
