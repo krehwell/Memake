@@ -97,6 +97,15 @@ void Memake::Update(void (*draw)())
                 {
                     keep_window_open = false;
                 }
+
+                // key switch listener
+                switch (event.key.keysym.sym)
+                {
+                    case SDLK_LEFT: sexposx-=1; break;
+                    case SDLK_RIGHT: sexposx+=1; break;
+                    case SDLK_UP: sexposy-=1; break;
+                    case SDLK_DOWN: sexposy+=1; break;
+                }
             }
         }
 
@@ -139,7 +148,7 @@ void Memake::Compose()
     Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
     trapezoid.Draw(renderer, Colmake.plum);
 
-    Vec2 a[] = {{60, 20}, {50, 50}, {700, 400}, {100, 200}, {900, 200}, {400, 800}};
+    Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
     Polygon pol(a, 6);
     pol.Draw(renderer, Colmake.darkgoldenrod);
 }

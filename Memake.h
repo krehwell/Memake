@@ -108,3 +108,6 @@ class Memake
         int mousePosX, mousePosY;
         float deltatime;
 };
+
+static int sexposx = 500;
+static int sexposy = 500;
