@@ -22,36 +22,46 @@ Memake::~Memake()
     SDL_Quit();
 }
 
-SDL_Renderer* Memake::GetRenderer(){
+SDL_Renderer* Memake::GetRenderer()
+{
     return renderer;
 }
 
-SDL_Window* Memake::GetWindow(){
+SDL_Window* Memake::GetWindow()
+{
     return window;
 }
 
-SDL_Surface* Memake::GetSurface(){
+SDL_Surface* Memake::GetSurface()
+{
     return surface;
 }
 
-int Memake::GetMousePosX(){
+int Memake::GetMousePosX()
+{
     return mousePosX;
 }
 
-int Memake::GetMousePosY(){
+int Memake::GetMousePosY()
+{
     return mousePosY;
 }
 
-void Memake::SetMousePos(){
+void Memake::SetMousePos()
+{
     SDL_GetMouseState(&mousePosX, &mousePosY);
 }
 
 float Memake::GetDeltaTime()
 {
+    return deltatime;
+}
+
+void Memake::SetDeltaTime()
+{
     prevTime = currentTime;
     currentTime = SDL_GetTicks();
-    float deltatime = (currentTime - prevTime) / 1000.0f;
-    return deltatime;
+    deltatime = (currentTime - prevTime) / 1000.0f;
 }
 
 Color Memake::GenerateColor(Uint8 r, Uint8 g, Uint8 b)
@@ -73,6 +83,7 @@ void Memake::Update(void (*draw)())
     while (keep_window_open)
     {
         SetMousePos();
+        SetDeltaTime();
 
         while (SDL_PollEvent(&event))
         {

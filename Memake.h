@@ -31,6 +31,7 @@ class Memake
         SDL_Window *GetWindow();
         SDL_Surface *GetSurface();
         void SetMousePos();
+        void SetDeltaTime();
 
         /**
          * Return Delta Time of the framerate. useful to multiply with any movement speed to get consistent movement through out all display.
@@ -104,6 +105,6 @@ class Memake
         int h;
 
         int prevTime = 0, currentTime=0;
-
         int mousePosX, mousePosY;
+        float deltatime;
 };
