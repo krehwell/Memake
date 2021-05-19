@@ -14,6 +14,14 @@ Memake::Memake(int width, int height, string window_name)
     renderer = SDL_CreateRenderer(window, -1, 0);
 }
 
+Memake::~Memake()
+{
+    SDL_DestroyWindow(window);
+    SDL_FreeSurface(surface);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
+}
+
 SDL_Renderer* Memake::GetRenderer(){
     return renderer;
 }
@@ -26,12 +34,16 @@ SDL_Surface* Memake::GetSurface(){
     return surface;
 }
 
-Memake::~Memake()
-{
-    SDL_DestroyWindow(window);
-    SDL_FreeSurface(surface);
-    SDL_DestroyRenderer(renderer);
-    SDL_Quit();
+int Memake::GetMousePosX(){
+    return mousePosX;
+}
+
+int Memake::GetMousePosY(){
+    return mousePosY;
+}
+
+void Memake::SetMousePos(){
+    SDL_GetMouseState(&mousePosX, &mousePosY);
 }
 
 float Memake::GetDeltaTime()
@@ -42,17 +54,26 @@ float Memake::GetDeltaTime()
     return deltatime;
 }
 
+Color Memake::GenerateColor(Uint8 r, Uint8 g, Uint8 b)
+{
+    Color newColor = {r, g, b, 255};
+    return newColor;
+}
+
 void Memake::Update(void (*draw)())
 {
     bool keep_window_open = true;
 
     SDL_Event event;
 
-    // get delta time calc
-    std::cout << "deltatime: " << GetDeltaTime() << std::endl;
+    // get delta time calc & mouse pos debugger
+    // std::cout << "deltatime: " << GetDeltaTime() << std::endl;
+    // std::cout << mousePosX << "-" << mousePosY << std::endl;
 
     while (keep_window_open)
     {
+        SetMousePos();
+
         while (SDL_PollEvent(&event))
         {
             if (event.type == SDL_QUIT)
@@ -68,22 +89,9 @@ void Memake::Update(void (*draw)())
             }
         }
 
-        SDL_SetRenderDrawColor(renderer, 0xF, 0x0, 0xF, 1);
-        for (int w = 0; w < 20 * 2; w++)
-        {
-            for (int h = 0; h < 20 * 2; h++)
-            {
-                int dx = 20 - w;
-                int dy = 20 - h;
-                if ((dx*dx + dy*dy) <= (20 * 20))
-                {
-                    SDL_RenderDrawPoint(renderer, 10 + dx, 10 + dy);
-                }
-            }
-        }
         Clear();
 
-        // Compose(); // set this to active to use unwrapper wrap
+        // Compose(); // set this to active to use unwrap wraper
         draw();
 
         SDL_RenderPresent(renderer);
@@ -94,12 +102,6 @@ void Memake::Clear()
 {
     SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
     SDL_RenderClear(renderer);
-}
-
-Color Memake::GenerateColor(Uint8 r, Uint8 g, Uint8 b)
-{
-    Color newColor = {r, g, b, 255};
-    return newColor;
 }
 
 // Debugger | Testing

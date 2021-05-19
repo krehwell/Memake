@@ -30,8 +30,22 @@ class Memake
         SDL_Renderer *GetRenderer();
         SDL_Window *GetWindow();
         SDL_Surface *GetSurface();
+        void SetMousePos();
+
+        /**
+         * Return Delta Time of the framerate. useful to multiply with any movement speed to get consistent movement through out all display.
+         */
         float GetDeltaTime();
-        float GetFPS();
+
+        /**
+         * Get X Position of Mouse Cursor.
+         */
+        int GetMousePosX();
+
+        /**
+         * Get Y Position of Mouse Cursor.
+         */
+        int GetMousePosY();
 
         /**
          * Generate Color by given (red, green, blue) values.
@@ -90,4 +104,6 @@ class Memake
         int h;
 
         int prevTime = 0, currentTime=0;
+
+        int mousePosX, mousePosY;
 };
