@@ -101,10 +101,10 @@ void Memake::Update(void (*draw)())
                 // key switch listener
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_LEFT: sexposx-=1; break;
-                    case SDLK_RIGHT: sexposx+=1; break;
-                    case SDLK_UP: sexposy-=1; break;
-                    case SDLK_DOWN: sexposy+=1; break;
+                    case SDLK_LEFT: testPosX-=1; break;
+                    case SDLK_RIGHT: testPosX+=1; break;
+                    case SDLK_UP: testPosY-=1; break;
+                    case SDLK_DOWN: testPosY+=1; break;
                 }
             }
         }

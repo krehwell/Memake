@@ -109,5 +109,5 @@ class Memake
         float deltatime;
 };
 
-static int sexposx = 500;
-static int sexposy = 500;
+static int testPosX = 500;
+static int testPosY = 500;
