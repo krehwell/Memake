@@ -1,6 +1,6 @@
 #########################
 # customise these
-SRC_DIR := .
+SRC_DIR := ./Memake
 CFILES := $(wildcard $(SRC_DIR)/*.cpp)
 PROG := main
 CFLAGS := -Wall -Wextra -g
@@ -14,10 +14,14 @@ CC := g++
 OBJFILES := $(CFILES:.cpp=.o)
 DEPFILES := $(CFILES:.cpp=.d)
 
-$(PROG) : $(OBJFILES)
-	$(LINK.o) $(LDFLAGS) -o $@ $^ -lGL -lGLEW -lSDL2
+$(PROG) : $(OBJFILES) main.o
+	$(LINK.o) $(LDFLAGS) -o $@ $^ -lSDL2
 
 clean :
 	rm -f $(PROG) $(OBJFILES) $(DEPFILES)
+
+build:
+	$(MAKE) clean
+	$(MAKE)
 
 -include $(DEPFILES)
