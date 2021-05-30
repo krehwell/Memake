@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Memake.h"
-
 class Vec2
 {
     public:
