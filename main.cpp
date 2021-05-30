@@ -1,4 +1,4 @@
-#include "Memake.h"
+#include "Memake/Memake.h"
 
 Memake mmk(800, 800, "memake");
 
@@ -6,7 +6,7 @@ void draw()
 {
     // mmk.DrawCircle(40, 50, 50, Colmake.azure);
     mmk.DrawRect(300, 600, 20, 70, Colmake.red);
-    mmk.DrawCircle(500, 300, 90, Colmake.blue);
+    mmk.DrawCircle(500, 300, 90, Colmake.darkslategray);
     mmk.DrawLine(550, 590, 590, 600, Colmake.azure);
     mmk.DrawEllipse(100, 500, 90, 20, Colmake.purple);
     mmk.DrawDot(600, 60, Colmake.yellowgreen);
