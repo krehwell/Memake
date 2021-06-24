@@ -16,6 +16,8 @@ void draw()
     Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
     Color newColorTest = mmk.GenerateColor(204, 252, 203);
     mmk.DrawPolygon(a, 6, newColorTest);
+
+    // cout << mmk.GetMousePosX() << " , " << mmk.GetMousePosY() << endl;
 }
 
 int main()

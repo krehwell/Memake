@@ -127,6 +127,7 @@ void Memake::Clear()
 // Debugger | Testing
 void Memake::Compose()
 {
+    // use this style
     Rectangle rect(100, 100, 20, 70);
     rect.Draw(renderer, Colmake.red);
 
@@ -136,6 +137,7 @@ void Memake::Compose()
     Line line(550, 590, 590, 600);
     line.Draw(renderer, Colmake.pink);
 
+    // unprovided by sdl
     Ellipse ellipse(100, 500, 90, 20);
     ellipse.Draw(renderer, Colmake.purple);
 
