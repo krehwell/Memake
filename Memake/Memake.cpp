@@ -64,6 +64,10 @@ void Memake::SetDeltaTime()
     deltatime = (currentTime - prevTime) / 1000.0f;
 }
 
+void Memake::Delay(int delay) {
+    SDL_Delay(delay);
+}
+
 Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
 {
     Color newColor = {r, g, b, 255};
@@ -98,7 +102,7 @@ void Memake::Update(void (*draw)())
                     keep_window_open = false;
                 }
 
-                // key switch listener
+                // key switch listener || TESTING
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_LEFT: testPosX-=1; break;

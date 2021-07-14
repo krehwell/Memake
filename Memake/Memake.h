@@ -34,6 +34,11 @@ class Memake
         void SetDeltaTime();
 
         /**
+         * Delay each call on every frame
+         */
+        void Delay(int delay);
+
+        /**
          * Return Delta Time of the framerate. useful to multiply with any movement speed to get consistent movement through out all display.
          */
         float getDeltaTime();
