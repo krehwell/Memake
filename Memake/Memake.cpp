@@ -47,7 +47,7 @@ int Memake::getMousePosY()
     return mousePosY;
 }
 
-void Memake::SetMousePos()
+void Memake::setMousePos()
 {
     SDL_GetMouseState(&mousePosX, &mousePosY);
 }
@@ -57,7 +57,7 @@ float Memake::getDeltaTime()
     return deltatime;
 }
 
-void Memake::SetDeltaTime()
+void Memake::setDeltaTime()
 {
     prevTime = currentTime;
     currentTime = SDL_GetTicks();
@@ -88,8 +88,8 @@ void Memake::update(void (*draw)())
 
     while (keepWindowOpen)
     {
-        SetMousePos();
-        SetDeltaTime();
+        setMousePos();
+        setDeltaTime();
 
         while (SDL_PollEvent(&event))
         {

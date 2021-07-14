@@ -23,8 +23,8 @@ class Memake
         ~Memake();
 
         void update(void (*draw)());
-        void SetMousePos();
-        void SetDeltaTime();
+        void setMousePos();
+        void setDeltaTime();
 
         /**
          * Close Program
