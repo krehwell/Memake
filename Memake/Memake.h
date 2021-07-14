@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "Colmake.h"
-#include "Vec2.h"
+#include "Vector2d.h"
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Line.h"
@@ -36,57 +36,57 @@ class Memake
         /**
          * Return Delta Time of the framerate. useful to multiply with any movement speed to get consistent movement through out all display.
          */
-        float GetDeltaTime();
+        float getDeltaTime();
 
         /**
          * Get X Position of Mouse Cursor.
          */
-        int GetMousePosX();
+        int getMousePosX();
 
         /**
          * Get Y Position of Mouse Cursor.
          */
-        int GetMousePosY();
+        int getMousePosY();
 
         /**
          * Generate Color by given (red, green, blue) values.
          */
-        Color GenerateColor(Uint8 r, Uint8 g, Uint8 b);
+        Color generateColor(Uint8 r, Uint8 g, Uint8 b);
 
         /**
          * Draw Rectangle with a given (x,y) and (height,width) values.
          */
-        void DrawRect(int x, int y, int width, int height, Color color);
+        void drawRect(int x, int y, int width, int height, Color color);
 
         /**
          * Draw Circle with a given (x,y) and radius values.
          */
-        void DrawCircle(int x, int y, int radius, Color color);
+        void drawCircle(int x, int y, int radius, Color color);
 
         /**
          * Draw Straight Line from given (x1,y1) to (x2, y2) values.
          */
-        void DrawLine(int x1, int y1, int x2, int y2, Color color);
+        void drawLine(int x1, int y1, int x2, int y2, Color color);
 
         /**
          * Draw Ellipse/Custom Cirle with a given (x,y) and (rx,ry) or custom radius values.
          */
-        void DrawEllipse(int x, int y, int rx, int ry, Color color);
+        void drawEllipse(int x, int y, int rx, int ry, Color color);
 
         /**
          * Draw Point/Dot to a specific x,y coordinate.
          */
-        void DrawDot(int x, int y, Color color);
+        void drawDot(int x, int y, Color color);
 
         /**
          * Draw Triangle with the given (x1,y1), (x2,y2), and (x3,y3) values.
          */
-        void DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color);
+        void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color);
 
         /**
          * Draw Trapezoid with the given (x1,y1), (x2,y2), (x3,y3), (x4,y4) values.
          */
-        void DrawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color);
+        void drawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color);
 
         /**
          * Draw Polygon with as many edges as intened by the given Array of Vec2.
@@ -94,7 +94,7 @@ class Memake
          * example: Vec2 edgesPos[] = {{60, 20}, {50, 50}, {700, 400}, {100, 200}, {900, 200}, {400, 800}}
          * then call it with: `DrawPolygon(edgesPos, numOfEdges)`;
          */
-        void DrawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
+        void drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
 
     private:
         SDL_Renderer *renderer = NULL;

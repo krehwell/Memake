@@ -37,12 +37,12 @@ SDL_Surface* Memake::GetSurface()
     return surface;
 }
 
-int Memake::GetMousePosX()
+int Memake::getMousePosX()
 {
     return mousePosX;
 }
 
-int Memake::GetMousePosY()
+int Memake::getMousePosY()
 {
     return mousePosY;
 }
@@ -52,7 +52,7 @@ void Memake::SetMousePos()
     SDL_GetMouseState(&mousePosX, &mousePosY);
 }
 
-float Memake::GetDeltaTime()
+float Memake::getDeltaTime()
 {
     return deltatime;
 }
@@ -64,7 +64,7 @@ void Memake::SetDeltaTime()
     deltatime = (currentTime - prevTime) / 1000.0f;
 }
 
-Color Memake::GenerateColor(Uint8 r, Uint8 g, Uint8 b)
+Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
 {
     Color newColor = {r, g, b, 255};
     return newColor;
@@ -161,42 +161,42 @@ void Memake::Compose()
   */
 // ============================================================================
 
-void Memake::DrawRect(int x, int y, int width, int height, Color color) {
+void Memake::drawRect(int x, int y, int width, int height, Color color) {
     Rectangle rect(x, y, width, height);
     rect.Draw(renderer, color);
 }
 
-void Memake::DrawCircle(int x, int y, int radius, Color color) {
+void Memake::drawCircle(int x, int y, int radius, Color color) {
     Circle circ(x, y, radius);
     circ.Draw(renderer, color);
 }
 
-void Memake::DrawLine(int x1, int y1, int x2, int y2, Color color) {
+void Memake::drawLine(int x1, int y1, int x2, int y2, Color color) {
     Line line(x1, y1, x2, y2);
     line.Draw(renderer, color);
 }
 
-void Memake::DrawEllipse(int x, int y, int rx, int ry, Color color) {
+void Memake::drawEllipse(int x, int y, int rx, int ry, Color color) {
     Ellipse ellipse(x, y, rx, ry);
     ellipse.Draw(renderer, color);
 }
 
-void Memake::DrawDot(int x, int y, Color color) {
+void Memake::drawDot(int x, int y, Color color) {
     Dot dot(x, y);
     dot.Draw(renderer, color);
 }
 
-void Memake::DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color) {
+void Memake::drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color) {
     Triangle triangle(x1, y1, x2, y2, x3, y3);
     triangle.Draw(renderer, color);
 }
 
-void Memake::DrawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color) {
+void Memake::drawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color) {
     Trapezoid trapezoid(x1, y1, x2, y2, x3, y3, x4, y4);
     trapezoid.Draw(renderer, color);
 }
 
-void Memake::DrawPolygon(Vec2 * edgesPos, int numOfEdges, Color color) {
+void Memake::drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color) {
     Polygon polygon(edgesPos, numOfEdges);
     polygon.Draw(renderer, color);
 }
