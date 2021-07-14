@@ -103,15 +103,6 @@ void Memake::update(void (*draw)())
                 {
                     keepWindowOpen = false;
                 }
-
-                // key switch listener || TESTING
-                switch (event.key.keysym.sym)
-                {
-                    case SDLK_LEFT: testPosX-=1; break;
-                    case SDLK_RIGHT: testPosX+=1; break;
-                    case SDLK_UP: testPosY-=1; break;
-                    case SDLK_DOWN: testPosY+=1; break;
-                }
             }
         }
 

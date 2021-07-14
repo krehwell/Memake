@@ -23,7 +23,6 @@ class Memake
         ~Memake();
 
         void update(void (*draw)());
-        void setMousePos();
         void setDeltaTime();
 
         /**
@@ -103,6 +102,7 @@ class Memake
         void draw();
         void clear();
         void compose();
+        void setMousePos();
 
     private:
         SDL_Renderer *GetRenderer();
@@ -120,6 +120,3 @@ class Memake
         float deltatime;
         bool keepWindowOpen = true;
 };
-
-static int testPosX = 500;
-static int testPosY = 500;
