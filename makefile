@@ -18,7 +18,7 @@ $(PROG) : $(OBJFILES) main.o
 	$(LINK.o) $(LDFLAGS) -o $@ $^ -lSDL2
 
 clean :
-	rm -f $(PROG) $(OBJFILES) $(DEPFILES)
+	rm -f $(PROG) $(OBJFILES) $(DEPFILES) main.o
 
 build:
 	$(MAKE) clean

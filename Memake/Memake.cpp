@@ -1,4 +1,5 @@
 #include "Memake.h"
+#include <conio.h>
 
 Memake::Memake(int width, int height, string window_name)
 {
@@ -74,17 +75,26 @@ Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
     return newColor;
 }
 
-void Memake::close() {
+void Memake::close()
+{
     keepWindowOpen = false;
+}
+
+bool Memake::getKeyboardInput(char key)
+{
+    char inp;
+    if(kbhit()){
+        inp = getch();
+        if (inp == key) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void Memake::update(void (*draw)())
 {
     SDL_Event event;
-
-    // get delta time calc & mouse pos debugger
-    // std::cout << "deltatime: " << GetDeltaTime() << std::endl;
-    // std::cout << mousePosX << "-" << mousePosY << std::endl;
 
     while (keepWindowOpen)
     {
@@ -124,7 +134,6 @@ void Memake::clear()
 // Debugger | Testing
 void Memake::compose()
 {
-    // use this style
     Rectangle rect(100, 100, 20, 70);
     rect.Draw(renderer, Colmake.red);
 

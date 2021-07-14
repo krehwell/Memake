@@ -1,6 +1,5 @@
 #include "Memake/Memake.h"
 // use winuser.h with GetAsyncKeyState on windows
-#include <conio.h>
 
 Memake mmk(800, 800, "memake");
 
@@ -8,7 +7,7 @@ int i = 50;
 
 void draw()
 {
-    // mmk.DrawCircle(40, 50, 50, Colmake.azure);
+    /// Drawing Method
     mmk.drawRect(300, 600, i, 70, Colmake.red);
     mmk.drawCircle(500, 300, 90, Colmake.darkslategray);
     mmk.drawLine(550, 590, 590, 600, Colmake.azure);
@@ -21,28 +20,26 @@ void draw()
     Color newColorTest = mmk.generateColor(204, 252, 203);
     mmk.drawPolygon(a, 6, newColorTest);
 
-    mmk.delay(90);
-
-    // keyboard input
-    char c;
-    if(kbhit()){
-        c = getch();
-
-        if (c == 'a') {
-            i--;
-        } else if (c == 'd') {
-            i++;
-        } else if (c == 'w') {
-            mmk.close();
-        }
-        printf("someone press: %c\n", c);
+    /// Keyboard Input
+    if (mmk.getKeyboardInput('a')) {
+        std::cout << "Yuza is cool" << std::endl;
+    } if (mmk.getKeyboardInput('e')) {
+        mmk.close();
     }
-    // cout << mmk.GetMousePosX() << " , " << mmk.GetMousePosY() << endl;
+
+    /// Mouse Input
+    cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
+
+    /// GET DELTA TIME
+    std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
+
+    /// DELAY
+    mmk.delay(1);
 }
 
 int main()
 {
-    // vector utils testing
+    /// Vector Utils
     Vec2 a = {2, 4};
     Vec2 b = {5, 2};
     Vec2 c = a + b;
@@ -58,6 +55,7 @@ int main()
     std::cout << normalize.x << std::endl;
     std::cout << normalize.y << std::endl;
 
+    /// Memake Game Event
     mmk.update(draw);
 
     return 0;
