@@ -22,21 +22,19 @@ class Memake
         Memake(int width, int height, string window_name);
         ~Memake();
 
-        void Update(void (*draw)());
-        void Draw();
-        void Clear();
-        void Compose();
-
-        SDL_Renderer *GetRenderer();
-        SDL_Window *GetWindow();
-        SDL_Surface *GetSurface();
+        void update(void (*draw)());
         void SetMousePos();
         void SetDeltaTime();
 
         /**
+         * Close Program
+         */
+        void close();
+
+        /**
          * Delay each call on every frame
          */
-        void Delay(int delay);
+        void delay(int delay);
 
         /**
          * Return Delta Time of the framerate. useful to multiply with any movement speed to get consistent movement through out all display.
@@ -102,6 +100,14 @@ class Memake
         void drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
 
     private:
+        void draw();
+        void clear();
+        void compose();
+
+    private:
+        SDL_Renderer *GetRenderer();
+        SDL_Window *GetWindow();
+        SDL_Surface *GetSurface();
         SDL_Renderer *renderer = NULL;
         SDL_Window   *window = NULL;
         SDL_Surface  *surface = NULL;
@@ -112,6 +118,7 @@ class Memake
         int prevTime = 0, currentTime=0;
         int mousePosX, mousePosY;
         float deltatime;
+        bool keepWindowOpen = true;
 };
 
 static int testPosX = 500;

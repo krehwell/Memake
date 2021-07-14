@@ -21,7 +21,7 @@ void draw()
     Color newColorTest = mmk.generateColor(204, 252, 203);
     mmk.drawPolygon(a, 6, newColorTest);
 
-    mmk.Delay(90);
+    mmk.delay(90);
 
     // keyboard input
     char c;
@@ -32,6 +32,8 @@ void draw()
             i--;
         } else if (c == 'd') {
             i++;
+        } else if (c == 'w') {
+            mmk.close();
         }
         printf("someone press: %c\n", c);
     }
@@ -56,7 +58,7 @@ int main()
     std::cout << normalize.x << std::endl;
     std::cout << normalize.y << std::endl;
 
-    mmk.Update(draw);
+    mmk.update(draw);
 
     return 0;
 }

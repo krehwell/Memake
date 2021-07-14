@@ -64,7 +64,7 @@ void Memake::SetDeltaTime()
     deltatime = (currentTime - prevTime) / 1000.0f;
 }
 
-void Memake::Delay(int delay) {
+void Memake::delay(int delay) {
     SDL_Delay(delay);
 }
 
@@ -74,17 +74,19 @@ Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
     return newColor;
 }
 
-void Memake::Update(void (*draw)())
-{
-    bool keep_window_open = true;
+void Memake::close() {
+    keepWindowOpen = false;
+}
 
+void Memake::update(void (*draw)())
+{
     SDL_Event event;
 
     // get delta time calc & mouse pos debugger
     // std::cout << "deltatime: " << GetDeltaTime() << std::endl;
     // std::cout << mousePosX << "-" << mousePosY << std::endl;
 
-    while (keep_window_open)
+    while (keepWindowOpen)
     {
         SetMousePos();
         SetDeltaTime();
@@ -93,13 +95,13 @@ void Memake::Update(void (*draw)())
         {
             if (event.type == SDL_QUIT)
             {
-                keep_window_open = false;
+                keepWindowOpen = false;
             }
             else if (event.type == SDL_KEYDOWN)
             {
                 if (event.key.keysym.sym == SDLK_ESCAPE)
                 {
-                    keep_window_open = false;
+                    keepWindowOpen = false;
                 }
 
                 // key switch listener || TESTING
@@ -113,7 +115,7 @@ void Memake::Update(void (*draw)())
             }
         }
 
-        Clear();
+        clear();
 
         // Compose(); // set this to active to use unwrap wraper
         draw();
@@ -122,14 +124,14 @@ void Memake::Update(void (*draw)())
     }
 }
 
-void Memake::Clear()
+void Memake::clear()
 {
     SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
     SDL_RenderClear(renderer);
 }
 
 // Debugger | Testing
-void Memake::Compose()
+void Memake::compose()
 {
     // use this style
     Rectangle rect(100, 100, 20, 70);
