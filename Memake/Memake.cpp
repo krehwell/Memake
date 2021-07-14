@@ -212,3 +212,8 @@ void Memake::drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color) {
     Polygon polygon(edgesPos, numOfEdges);
     polygon.Draw(renderer, color);
 }
+
+void Memake::drawPolkadot(int x1, int y1, int x2, int y2) {
+    Polkadot polkadot(x1, y1, x2, y2);
+    polkadot.Draw(renderer);
+}

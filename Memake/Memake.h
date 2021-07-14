@@ -100,6 +100,11 @@ class Memake
          */
         void drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
 
+        /**
+         * Draw custom polkadot pattern
+         */
+        void drawPolkadot(int x1, int y1, int x2, int y2);
+
     private:
         void draw();
         void clear();

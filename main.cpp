@@ -19,6 +19,8 @@ void draw()
     Color newColorTest = mmk.generateColor(204, 252, 203);
     mmk.drawPolygon(a, 6, newColorTest);
 
+    mmk.drawPolkadot(200, 500, 250, 590);
+
     /// Keyboard Input
     /// for win user: use winuser.h with GetAsyncKeyState on windows is better in my opinion
     if (mmk.getKeyboardInput('a')) {
