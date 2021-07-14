@@ -14,6 +14,7 @@
 #include "Trapezoid.h"
 #include "Polygon.h"
 #include "Polkadot.h"
+#include "Flower.h"
 
 using namespace std;
 
@@ -101,9 +102,14 @@ class Memake
         void drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
 
         /**
-         * Draw custom polkadot pattern
+         * Draw custom polkadot pattern with the given (x1,y1) and (x2,y2) values.
          */
         void drawPolkadot(int x1, int y1, int x2, int y2);
+
+        /**
+         * Draw flower with 4 petals by specifying petalSize and petalDistance.
+         */
+        void drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor);
 
     private:
         void draw();

@@ -165,6 +165,9 @@ void Memake::compose()
 
     Polkadot polkadot(400, 600, 500, 900);
     polkadot.Draw(renderer);
+
+    Flower flower(500, 550, 50, 40);
+    flower.Draw(renderer, Colmake.darkkhaki, Colmake.crimson);
 }
 
 // ============================================================================
@@ -216,4 +219,9 @@ void Memake::drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color) {
 void Memake::drawPolkadot(int x1, int y1, int x2, int y2) {
     Polkadot polkadot(x1, y1, x2, y2);
     polkadot.Draw(renderer);
+}
+
+void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor) {
+    Flower flower(x, y, petalSize, petalDistance);
+    flower.Draw(renderer, petalColor, centerPetalColor);
 }
