@@ -1,5 +1,8 @@
 #include "Memake.h"
 #include <conio.h>
+#include <stdio.h>
+#include <math.h>
+#include <complex.h>
 
 Memake::Memake(int width, int height, string window_name)
 {
@@ -118,7 +121,7 @@ void Memake::update(void (*draw)())
 
         clear();
 
-        // Compose(); // set this to active to use unwrap wraper
+        // compose(); // set this to active to use unwrap wraper
         draw();
 
         SDL_RenderPresent(renderer);
@@ -159,6 +162,9 @@ void Memake::compose()
     Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
     Polygon pol(a, 6);
     pol.Draw(renderer, Colmake.darkgoldenrod);
+
+    Polkadot polkadot(400, 600, 500, 900);
+    polkadot.Draw(renderer);
 }
 
 // ============================================================================

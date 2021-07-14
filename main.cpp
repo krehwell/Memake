@@ -1,5 +1,4 @@
 #include "Memake/Memake.h"
-// use winuser.h with GetAsyncKeyState on windows
 
 Memake mmk(800, 800, "memake");
 
@@ -21,20 +20,21 @@ void draw()
     mmk.drawPolygon(a, 6, newColorTest);
 
     /// Keyboard Input
+    /// for win user: use winuser.h with GetAsyncKeyState on windows is better in my opinion
     if (mmk.getKeyboardInput('a')) {
-        std::cout << "Yuza is cool" << std::endl;
+        i++;
     } if (mmk.getKeyboardInput('e')) {
-        mmk.close();
+        i--;
     }
 
     /// Mouse Input
-    cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
+    // cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
 
-    /// GET DELTA TIME
-    std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
+    /// Get Delta Time
+    // std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
 
-    /// DELAY
-    mmk.delay(1);
+    /// Delay
+    mmk.delay(60);
 }
 
 int main()
