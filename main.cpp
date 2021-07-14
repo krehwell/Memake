@@ -1,4 +1,6 @@
 #include "Memake/Memake.h"
+// use winuser.h with GetAsyncKeyState on windows
+#include <conio.h>
 
 Memake mmk(800, 800, "memake");
 
@@ -7,7 +9,7 @@ int i = 50;
 void draw()
 {
     // mmk.DrawCircle(40, 50, 50, Colmake.azure);
-    mmk.drawRect(300, 600, i++, 70, Colmake.red);
+    mmk.drawRect(300, 600, i, 70, Colmake.red);
     mmk.drawCircle(500, 300, 90, Colmake.darkslategray);
     mmk.drawLine(550, 590, 590, 600, Colmake.azure);
     mmk.drawEllipse(100, 500, 90, 20, Colmake.purple);
@@ -19,7 +21,20 @@ void draw()
     Color newColorTest = mmk.generateColor(204, 252, 203);
     mmk.drawPolygon(a, 6, newColorTest);
 
-    mmk.Delay(40);
+    mmk.Delay(90);
+
+    // keyboard input
+    char c;
+    if(kbhit()){
+        c = getch();
+
+        if (c == 'a') {
+            i--;
+        } else if (c == 'd') {
+            i++;
+        }
+        printf("someone press: %c\n", c);
+    }
     // cout << mmk.GetMousePosX() << " , " << mmk.GetMousePosY() << endl;
 }
 
