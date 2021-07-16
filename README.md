@@ -17,7 +17,7 @@ int main() {
 ## Run
 1. `git clone https://github.com/krehwell/PSM-2.git`
 2. `cd PSM-2`
-3. `make`
+3. `make build`
 4. `./main`
 
 ## Dependencies
