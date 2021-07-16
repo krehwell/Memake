@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Memake.h"
@@ -19,7 +20,6 @@ public:
         borderEllipse(renderer, c_x, c_y, r_x, r_y, color);
     }
 
-	//draw one quadrant arc, and mirror the other 4 quadrants
     int c_x;
     int c_y;
     int r_x;
