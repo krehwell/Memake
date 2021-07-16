@@ -38,28 +38,27 @@ Vector2& Vector2::operator-=( const Vector2& rhs )
 	return *this = *this - rhs;
 }
 
-float Vector2::GetLength() const
+float Vector2::getLength() const
 {
-	return std::sqrt( GetLengthSq() );
+	return std::sqrt( getLengthSq() );
 }
 
-float Vector2::GetLengthSq() const
+float Vector2::getLengthSq() const
 {
 	return x * x + y * y;
 }
 
-Vector2& Vector2::Normalize()
+Vector2& Vector2::normalize()
 {
-	return *this = GetNormalized();
+	return *this = getNormalized();
 }
 
-Vector2 Vector2::GetNormalized() const
+Vector2 Vector2::getNormalized() const
 {
-	const float len = GetLength();
+	const float len = getLength();
 	if( len != 0.0f )
 	{
 		return *this * (1.0f / len);
 	}
 	return *this;
 }
-

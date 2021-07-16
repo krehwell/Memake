@@ -49,8 +49,8 @@ int main()
     Vector2 b = {5, 2};
     Vector2 c = a + b;
 
-    float length = c.GetLength();
-    Vector2 normalize = c.GetNormalized();
+    float length = c.getLength();
+    Vector2 normalize = c.getNormalized();
 
     std::cout << c.x << std::endl;
     std::cout << c.y << std::endl;

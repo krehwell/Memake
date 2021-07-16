@@ -11,10 +11,11 @@ class Vector2
         Vector2& operator*=( float rhs );
         Vector2 operator-( const Vector2& rhs ) const;
         Vector2& operator-=( const Vector2& rhs );
-        float GetLength() const;
-        float GetLengthSq() const;
-        Vector2& Normalize();
-        Vector2 GetNormalized() const;
+        float getLength() const;
+        float getLengthSq() const;
+        Vector2& normalize();
+        Vector2 getNormalized() const;
+        float getMagnitude() const;
     public:
         float x;
         float y;
