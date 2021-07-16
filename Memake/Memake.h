@@ -99,7 +99,7 @@ class Memake
          * example: Vec2 edgesPos[] = {{60, 20}, {50, 50}, {700, 400}, {100, 200}, {900, 200}, {400, 800}}
          * then call it with: `DrawPolygon(edgesPos, numOfEdges)`;
          */
-        void drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color);
+        void drawPolygon(Vector2 * edgesPos, int numOfEdges, Color color);
 
         /**
          * Draw custom polkadot pattern with the given (x1,y1) and (x2,y2) values.

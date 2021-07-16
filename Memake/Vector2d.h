@@ -1,20 +1,20 @@
 #pragma once
 
-class Vec2
+class Vector2
 {
     public:
-        Vec2() = default;
-        Vec2( float x_in,float y_in );
-        Vec2 operator+( const Vec2& rhs ) const;
-        Vec2& operator+=( const Vec2& rhs );
-        Vec2 operator*( float rhs ) const;
-        Vec2& operator*=( float rhs );
-        Vec2 operator-( const Vec2& rhs ) const;
-        Vec2& operator-=( const Vec2& rhs );
+        Vector2() = default;
+        Vector2( float x_in,float y_in );
+        Vector2 operator+( const Vector2& rhs ) const;
+        Vector2& operator+=( const Vector2& rhs );
+        Vector2 operator*( float rhs ) const;
+        Vector2& operator*=( float rhs );
+        Vector2 operator-( const Vector2& rhs ) const;
+        Vector2& operator-=( const Vector2& rhs );
         float GetLength() const;
         float GetLengthSq() const;
-        Vec2& Normalize();
-        Vec2 GetNormalized() const;
+        Vector2& Normalize();
+        Vector2 GetNormalized() const;
     public:
         float x;
         float y;

@@ -1,59 +1,59 @@
 #include "Vector2d.h"
 #include <cmath>
 
-Vec2::Vec2( float x_in,float y_in )
+Vector2::Vector2( float x_in,float y_in )
 	:
 	x( x_in ),
 	y( y_in )
 {
 }
 
-Vec2 Vec2::operator+( const Vec2& rhs ) const
+Vector2 Vector2::operator+( const Vector2& rhs ) const
 {
-	return Vec2( x + rhs.x,y + rhs.y );
+	return Vector2( x + rhs.x,y + rhs.y );
 }
 
-Vec2& Vec2::operator+=( const Vec2& rhs )
+Vector2& Vector2::operator+=( const Vector2& rhs )
 {
 	return *this = *this + rhs;
 }
 
-Vec2 Vec2::operator*( float rhs ) const
+Vector2 Vector2::operator*( float rhs ) const
 {
-	return Vec2( x * rhs,y * rhs );
+	return Vector2( x * rhs,y * rhs );
 }
 
-Vec2& Vec2::operator*=( float rhs )
+Vector2& Vector2::operator*=( float rhs )
 {
 	return *this = *this * rhs;
 }
 
-Vec2 Vec2::operator-( const Vec2& rhs ) const
+Vector2 Vector2::operator-( const Vector2& rhs ) const
 {
-	return Vec2( x - rhs.x,y - rhs.y );
+	return Vector2( x - rhs.x,y - rhs.y );
 }
 
-Vec2& Vec2::operator-=( const Vec2& rhs )
+Vector2& Vector2::operator-=( const Vector2& rhs )
 {
 	return *this = *this - rhs;
 }
 
-float Vec2::GetLength() const
+float Vector2::GetLength() const
 {
 	return std::sqrt( GetLengthSq() );
 }
 
-float Vec2::GetLengthSq() const
+float Vector2::GetLengthSq() const
 {
 	return x * x + y * y;
 }
 
-Vec2& Vec2::Normalize()
+Vector2& Vector2::Normalize()
 {
 	return *this = GetNormalized();
 }
 
-Vec2 Vec2::GetNormalized() const
+Vector2 Vector2::GetNormalized() const
 {
 	const float len = GetLength();
 	if( len != 0.0f )

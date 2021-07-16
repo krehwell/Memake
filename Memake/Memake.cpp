@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <stdio.h>
 #include <math.h>
-#include <complex.h>
 
 Memake::Memake(int width, int height, string window_name)
 {
@@ -159,7 +158,7 @@ void Memake::compose()
     Trapezoid trapezoid(700, 695, 720, 650, 780, 644, 740, 740);
     trapezoid.Draw(renderer, Colmake.plum);
 
-    Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
+    Vector2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
     Polygon pol(a, 6);
     pol.Draw(renderer, Colmake.darkgoldenrod);
 
@@ -211,7 +210,7 @@ void Memake::drawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x
     trapezoid.Draw(renderer, color);
 }
 
-void Memake::drawPolygon(Vec2 * edgesPos, int numOfEdges, Color color) {
+void Memake::drawPolygon(Vector2 * edgesPos, int numOfEdges, Color color) {
     Polygon polygon(edgesPos, numOfEdges);
     polygon.Draw(renderer, color);
 }

@@ -6,7 +6,7 @@
 class Polygon
 {
 public:
-    Polygon(Vec2 pos[], int numOfEdges)
+    Polygon(Vector2 pos[], int numOfEdges)
     {
         this->pos = pos;
         this->numOfEdges = numOfEdges;
@@ -25,6 +25,6 @@ public:
         filledPolygonColor(renderer,vx,vy,numOfEdges,color);
     }
 
-    Vec2 *pos;
+    Vector2 *pos;
     int numOfEdges;
 };

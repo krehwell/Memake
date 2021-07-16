@@ -2,6 +2,8 @@
 
 Memake mmk(800, 800, "memake");
 
+using namespace std;
+
 int i = 50;
 
 void draw()
@@ -15,7 +17,7 @@ void draw()
     mmk.drawTriangle(50, 80, 60, 50, 90, 100, Colmake.yellow);
     mmk.drawTrapezoid(700, 695, 720, 650, 780, 644, 740, 740, Colmake.aquamarine);
 
-    Vec2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
+    Vector2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
     Color newColorTest = mmk.generateColor(204, 252, 203);
     mmk.drawPolygon(a, 6, newColorTest);
 
@@ -43,12 +45,12 @@ void draw()
 int main()
 {
     /// Vector Utils
-    Vec2 a = {2, 4};
-    Vec2 b = {5, 2};
-    Vec2 c = a + b;
+    Vector2 a = {2, 4};
+    Vector2 b = {5, 2};
+    Vector2 c = a + b;
 
     float length = c.GetLength();
-    Vec2 normalize = c.GetNormalized();
+    Vector2 normalize = c.GetNormalized();
 
     std::cout << c.x << std::endl;
     std::cout << c.y << std::endl;
