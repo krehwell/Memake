@@ -1,16 +1,17 @@
 # Memake
-The tighter the nicer. `Memake` is the library name itself. Use `Colmake` for color.
+The tighter the nicer. `Memake` is the library's name itself. Use `Colmake` for color.
 
 ```c++
 #include "Memake.h"
 Memake mmk(800, 800, "memake window");
 
 void draw() {
-    mmk.drawRect(300, 600, i, 70, Colmake.red);
+    mmk.drawRect(300, 600, 80, 70, Colmake.red);
 }
 
 int main() {
     mmk.update(draw);
+    return 0;
 }
 ```
 
