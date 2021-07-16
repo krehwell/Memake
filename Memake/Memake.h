@@ -15,6 +15,7 @@
 #include "Polygon.h"
 #include "Polkadot.h"
 #include "Flower.h"
+#include "EllipseBorder.h"
 
 using namespace std;
 
@@ -77,6 +78,11 @@ class Memake
          * Draw Ellipse/Custom Cirle with a given (x,y) and (rx,ry) or custom radius values.
          */
         void drawEllipse(int x, int y, int rx, int ry, Color color);
+
+        /**
+         * Draw Ellipse with no fill (just border) with a given (x,y) and (rx,ry) or custom radius values.
+         */
+        void drawEllipseBorder(int x, int y, int rx, int ry, Color color);
 
         /**
          * Draw Point/Dot to a specific x,y coordinate.

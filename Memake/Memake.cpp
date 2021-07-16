@@ -120,8 +120,8 @@ void Memake::update(void (*draw)())
 
         clear();
 
-        // compose(); // set this to active to use unwrap wraper
-        draw();
+        compose(); // set this to active to use unwrap wraper
+        // draw();
 
         SDL_RenderPresent(renderer);
     }
@@ -164,6 +164,9 @@ void Memake::compose()
 
     Polkadot polkadot(400, 600, 500, 900);
     polkadot.Draw(renderer);
+
+    EllipseBorder ellipseBorder(120, 700, 50, 90);
+    ellipseBorder.Draw(renderer, Colmake.aqua);
 
     Flower flower(500, 550, 50, 40);
     flower.Draw(renderer, Colmake.darkkhaki, Colmake.crimson);
@@ -223,4 +226,9 @@ void Memake::drawPolkadot(int x1, int y1, int x2, int y2) {
 void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor) {
     Flower flower(x, y, petalSize, petalDistance);
     flower.Draw(renderer, petalColor, centerPetalColor);
+}
+
+void Memake::drawEllipseBorder(int x, int y, int rx, int ry, Color color) {
+    EllipseBorder ellipseBorder(x, y, rx, ry);
+    ellipseBorder.Draw(renderer, color);
 }

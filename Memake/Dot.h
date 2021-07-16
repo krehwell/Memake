@@ -14,7 +14,7 @@ public:
 
     void Draw(SDL_Renderer* renderer, Color color)
     {
-        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);;
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
         SDL_RenderDrawPoint(renderer, x, y);
     }
 
