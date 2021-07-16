@@ -15,7 +15,6 @@ class Vector2
         float getLengthSq() const;
         Vector2& normalize();
         Vector2 getNormalized() const;
-        float getMagnitude() const;
     public:
         float x;
         float y;
