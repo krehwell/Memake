@@ -120,8 +120,8 @@ void Memake::update(void (*draw)())
 
         clear();
 
-        compose(); // set this to active to use unwrap wraper
-        // draw();
+        // compose(); // set this to active to use unwrap wraper
+        draw();
 
         SDL_RenderPresent(renderer);
     }

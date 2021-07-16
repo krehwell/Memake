@@ -24,6 +24,8 @@ void draw()
     mmk.drawPolkadot(200, 500, 250, 590);
     mmk.drawFlower(80, 700, 50, 30, Colmake.coral, Colmake.cornsilk);
 
+    mmk.drawEllipseBorder(400, 400, 20, 60, Colmake.burlywood);
+
     /// Keyboard Input
     /// for win user: use winuser.h with GetAsyncKeyState on windows is better in my opinion
     if (mmk.getKeyboardInput('a')) {
