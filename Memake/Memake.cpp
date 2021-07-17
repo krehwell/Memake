@@ -1,5 +1,7 @@
 #include "Memake.h"
-#include <conio.h>
+#ifdef linux
+#include "../lib/conio.h"
+#endif
 #include <stdio.h>
 #include <math.h>
 
