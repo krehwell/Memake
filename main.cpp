@@ -47,6 +47,8 @@ void draw1()
 void draw() {
     mmk.drawEllipseBorder(400, 400, 70, 120, Colmake.blueviolet);
     mmk.drawPaddle(40, 300, 150, 50, Colmake.chartreuse, Colmake.darkmagenta);
+
+    mmk.drawFlower(700, 80, 40, 40, Colmake.cornsilk, Colmake.darkorange);
 }
 
 int main()

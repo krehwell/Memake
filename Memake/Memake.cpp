@@ -226,8 +226,20 @@ void Memake::drawPolkadot(int x1, int y1, int x2, int y2) {
 }
 
 void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor) {
-    Flower flower(x, y, petalSize, petalDistance);
-    flower.Draw(renderer, petalColor, centerPetalColor);
+    Ellipse upperLeftPetal(x - petalDistance, y - petalDistance, petalSize, petalSize);
+    upperLeftPetal.Draw(renderer, petalColor);
+
+    Ellipse upperRightPetal(x + petalDistance, y - petalDistance, petalSize, petalSize);
+    upperRightPetal.Draw(renderer, petalColor);
+
+    Ellipse lowerLeft(x - petalDistance, y + petalDistance, petalSize, petalSize);
+    lowerLeft.Draw(renderer, petalColor);
+
+    Ellipse lowerRight(x + petalDistance, y + petalDistance, petalSize, petalSize);
+    lowerRight.Draw(renderer, petalColor);
+
+    Ellipse middlePetal(x, y, petalSize, petalSize);
+    middlePetal.Draw(renderer, centerPetalColor);
 }
 
 void Memake::drawEllipseBorder(int x, int y, int rx, int ry, Color color) {
