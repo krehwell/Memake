@@ -121,6 +121,11 @@ class Memake
          */
         void drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor);
 
+        /**
+         * Draw radar with given (x,y) and radius with number of circle expanded
+         */
+        void drawRadar(int x, int y, int radius, int count, Color color);
+
     private:
         void draw();
         void clear();

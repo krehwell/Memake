@@ -254,3 +254,10 @@ void Memake::drawPaddle(int x, int y, int width, int height, Color barColor, Col
     rPaddle.Draw(renderer, cornerColor);
     rect.Draw(renderer, barColor);
 }
+
+void Memake::drawRadar(int x, int y, int radius, int count, Color color) {
+    for(int i=1; i<=count; i++)
+    {
+        drawEllipseBorder(x, y, i*radius, i*radius, color);
+    }
+}

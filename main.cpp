@@ -24,8 +24,9 @@ void draw()
     mmk.drawPolkadot(200, 500, 250, 590);
     mmk.drawFlower(100, 700, 50, 40, Colmake.coral, Colmake.cornsilk);
     mmk.drawPaddle(200, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
+    mmk.drawRadar(700, 50, 20, 8, Colmake.darkred);
 
-
+    /// Keyboard input
     if (mmk.getKeyboardInput('a')) {
         width++;
     } else if (mmk.getKeyboardInput('e')) {
