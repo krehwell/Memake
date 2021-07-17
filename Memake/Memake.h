@@ -12,10 +12,9 @@
 #include "Dot.h"
 #include "Triangle.h"
 #include "Trapezoid.h"
+#include "EllipseBorder.h"
 #include "Polygon.h"
 #include "Polkadot.h"
-#include "Flower.h"
-#include "EllipseBorder.h"
 
 using namespace std;
 

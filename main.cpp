@@ -4,34 +4,32 @@ Memake mmk(800, 800, "memake");
 
 using namespace std;
 
-int i = 50;
+int width = 50;
 
-void draw1()
+void draw()
 {
-    /// Drawing Method
-    mmk.drawRect(300, 600, i, 70, Colmake.red);
+    /// Drawing Primitives
     mmk.drawCircle(500, 300, 90, Colmake.darkslategray);
     mmk.drawLine(550, 590, 590, 600, Colmake.azure);
     mmk.drawEllipse(100, 500, 90, 20, Colmake.purple);
     mmk.drawDot(600, 60, Colmake.yellowgreen);
     mmk.drawTriangle(50, 80, 60, 50, 90, 100, Colmake.yellow);
     mmk.drawTrapezoid(700, 695, 720, 650, 780, 644, 740, 740, Colmake.aquamarine);
-
-    Vector2 a[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
-    Color newColorTest = mmk.generateColor(204, 252, 203);
-    mmk.drawPolygon(a, 6, newColorTest);
-
-    mmk.drawPolkadot(200, 500, 250, 590);
-    mmk.drawFlower(80, 700, 50, 30, Colmake.coral, Colmake.cornsilk);
-
     mmk.drawEllipseBorder(400, 400, 20, 60, Colmake.burlywood);
+    mmk.drawRect(300, 600, width, 70, Colmake.red);
 
-    /// Keyboard Input
-    /// for win user: use winuser.h with GetAsyncKeyState on windows is better in my opinion
+    /// Drawing Customs
+    Vector2 polygon[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
+    mmk.drawPolygon(polygon, 6, mmk.generateColor(204, 252, 203));
+    mmk.drawPolkadot(200, 500, 250, 590);
+    mmk.drawFlower(100, 700, 50, 40, Colmake.coral, Colmake.cornsilk);
+    mmk.drawPaddle(200, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
+
+
     if (mmk.getKeyboardInput('a')) {
-        i++;
-    } if (mmk.getKeyboardInput('e')) {
-        i--;
+        width++;
+    } else if (mmk.getKeyboardInput('e')) {
+        width--;
     }
 
     /// Mouse Input
@@ -44,11 +42,20 @@ void draw1()
     mmk.delay(60);
 }
 
-void draw() {
+void draw1() {
+    // custom draw primitives
     mmk.drawEllipseBorder(400, 400, 70, 120, Colmake.blueviolet);
-    mmk.drawPaddle(40, 300, 150, 50, Colmake.chartreuse, Colmake.darkmagenta);
 
+    // custom draw flower
     mmk.drawFlower(700, 80, 40, 40, Colmake.cornsilk, Colmake.darkorange);
+
+    // custom draw polygon
+    Vector2 polygonPoints[] = { {140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240} };
+    mmk.drawPolygon(polygonPoints, 6, mmk.generateColor(204, 252, 203));
+
+    mmk.drawPaddle(30, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
+
+    mmk.drawPolkadot(200, 500, 500, 700);
 }
 
 int main()

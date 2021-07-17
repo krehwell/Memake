@@ -1,6 +1,7 @@
 #include "Memake.h"
+
 #ifdef linux
-#include "../lib/conio.h"
+#include <conio.h>
 #endif
 #include <stdio.h>
 #include <math.h>
@@ -169,9 +170,6 @@ void Memake::compose()
 
     EllipseBorder ellipseBorder(120, 700, 50, 90);
     ellipseBorder.Draw(renderer, Colmake.aqua);
-
-    Flower flower(500, 550, 50, 40);
-    flower.Draw(renderer, Colmake.darkkhaki, Colmake.crimson);
 }
 
 // ============================================================================
