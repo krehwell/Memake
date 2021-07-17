@@ -60,7 +60,7 @@ class Memake
         Color generateColor(Uint8 r, Uint8 g, Uint8 b);
 
         /**
-         * Draw Rectangle with a given (x,y) and (height,width) values.
+         * Draw Rectangle with a given (x,y) and (width, height) values.
          */
         void drawRect(int x, int y, int width, int height, Color color);
 
@@ -116,6 +116,11 @@ class Memake
          * Draw flower with 4 petals by specifying petalSize and petalDistance.
          */
         void drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor);
+
+        /**
+         * Draw paddle by specifying position and height values with additional bar and corner color.
+         */
+        void drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor);
 
     private:
         void draw();

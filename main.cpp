@@ -6,7 +6,7 @@ using namespace std;
 
 int i = 50;
 
-void draw()
+void draw1()
 {
     /// Drawing Method
     mmk.drawRect(300, 600, i, 70, Colmake.red);
@@ -42,6 +42,11 @@ void draw()
 
     /// Delay
     mmk.delay(60);
+}
+
+void draw() {
+    mmk.drawEllipseBorder(400, 400, 70, 120, Colmake.blueviolet);
+    mmk.drawPaddle(40, 300, 150, 50, Colmake.chartreuse, Colmake.darkmagenta);
 }
 
 int main()

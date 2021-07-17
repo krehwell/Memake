@@ -234,3 +234,13 @@ void Memake::drawEllipseBorder(int x, int y, int rx, int ry, Color color) {
     EllipseBorder ellipseBorder(x, y, rx, ry);
     ellipseBorder.Draw(renderer, color);
 }
+
+void Memake::drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor) {
+    Rectangle rect(x, y, width, height);
+    Ellipse rPaddle(x, y + (height/2), height/2, height/2);
+    Ellipse lPaddle(x + width, y + (height/2), height/2, height/2);
+
+    lPaddle.Draw(renderer, cornerColor);
+    rPaddle.Draw(renderer, cornerColor);
+    rect.Draw(renderer, barColor);
+}
