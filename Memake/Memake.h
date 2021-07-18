@@ -15,6 +15,7 @@
 #include "EllipseBorder.h"
 #include "Polygon.h"
 #include "Polkadot.h"
+#include "FractalTree.h"
 
 using namespace std;
 
@@ -125,6 +126,16 @@ class Memake
          * Draw radar with given (x,y) and radius with number of circle expanded
          */
         void drawRadar(int x, int y, int radius, int count, Color color);
+
+        /**
+         * Draw a tree with given (x,y) additional with
+         * @params {int} lineLength - initial bark size
+         * @params {int} lineLengthSeed - randomizer for next bark to be growth (5-10 for best value)
+         * @params {int} angle - angle rotation of tree (90 for straight)
+         * @params {int} angleSeed - angle randomizer (15-25 for best value)
+         * Best Look Example drawFractalTree(400, 700, 70, 8, 90, 15, Colmake.cadetblue);
+         */
+        void drawFractalTree(int x, int y, int lineLength, int lineLengthSeed, int angle, int angleSeed, Color color);
 
     private:
         void draw();

@@ -261,3 +261,8 @@ void Memake::drawRadar(int x, int y, int radius, int count, Color color) {
         drawEllipseBorder(x, y, i*radius, i*radius, color);
     }
 }
+
+void Memake::drawFractalTree(int x, int y, int lineLength, int lineLengthSeed, int angle, int angleSeed, Color color) {
+    FractalTree ft(x, y, lineLength, lineLengthSeed, angle, angleSeed);
+    ft.Draw(renderer, color);
+}
