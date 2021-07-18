@@ -87,6 +87,7 @@ void Memake::close()
 
 bool Memake::getKeyboardInput(char key)
 {
+#ifdef linux
     char inp;
     if(kbhit()){
         inp = getch();
@@ -94,6 +95,7 @@ bool Memake::getKeyboardInput(char key)
             return true;
         }
     }
+#endif
     return false;
 }
 
