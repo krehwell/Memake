@@ -3,7 +3,7 @@
 SRC_DIR := ./Memake
 CFILES := $(wildcard $(SRC_DIR)/*.cpp)
 PROG := main
-CFLAGS := -Wall -Wextra -g -std=c++11
+CFLAGS := -Wall -Wextra -g -std=c++14
 LDFLAGS :=
 ########################
 
