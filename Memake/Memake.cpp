@@ -1,8 +1,4 @@
 #include "Memake.h"
-
-#ifdef linux
-#include <conio.h>
-#endif
 #include <stdio.h>
 #include <math.h>
 
@@ -85,18 +81,27 @@ void Memake::close()
     keepWindowOpen = false;
 }
 
-bool Memake::getKeyboardInput(char key)
+char Memake::readKeyInput()
 {
-#ifdef linux
-    char inp;
-    if(kbhit()){
-        inp = getch();
-        if (inp == key) {
-            return true;
+    SDL_Event userEvent;
+    while (SDL_PollEvent(&userEvent))
+    {
+        switch(userEvent.type) {
+            case SDL_TEXTINPUT:
+                for(int i=0; i < SDL_TEXTINPUTEVENT_TEXT_SIZE; ++i) {
+                    char c = userEvent.text.text[i];
+                    // cancel if a non-ascii char is encountered
+                    if(c < ' ' || c > '~') {
+                        break;
+                    } else  {
+                        std::cout << c << std::endl;
+                        return c;
+                    }
+                }
+                break;
         }
     }
-#endif
-    return false;
+    return ' ';
 }
 
 void Memake::update(void (*draw)())

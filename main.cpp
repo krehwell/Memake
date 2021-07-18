@@ -26,6 +26,16 @@ void draw()
     mmk.drawPaddle(200, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
     mmk.drawRadar(700, 50, 20, 8, Colmake.darkred);
     mmk.drawFractalTree(700, 600, 70, 8, 90, 15, Colmake.cadetblue);
+
+    /// Keyboard input
+    switch(mmk.readKeyInput()) {
+        case 'a':
+            width++;
+            break;
+        case 'e':
+            width--;
+            break;
+    }
 }
 
 void draw1() {
@@ -42,13 +52,6 @@ void draw1() {
     mmk.drawPaddle(30, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
 
     mmk.drawPolkadot(200, 500, 500, 700);
-
-    /// Keyboard input
-    if (mmk.getKeyboardInput('a')) {
-        width++;
-    } else if (mmk.getKeyboardInput('e')) {
-        width--;
-    }
 
     /// Mouse Input
     // cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;

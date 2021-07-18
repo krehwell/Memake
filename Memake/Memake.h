@@ -27,7 +27,7 @@ class Memake
 
         void update(void (*draw)());
         void setDeltaTime();
-        bool getKeyboardInput(char key);
+        char readKeyInput();
 
         /**
          * Close Program
