@@ -41,30 +41,6 @@ void draw()
     }
 }
 
-void draw1() {
-    // custom draw primitives
-    mmk.drawEllipseBorder(400, 400, 70, 120, Colmake.blueviolet);
-
-    // custom draw flower
-    mmk.drawFlower(700, 80, 40, 40, Colmake.cornsilk, Colmake.darkorange);
-
-    // custom draw polygon
-    Vector2 polygonPoints[] = { {140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240} };
-    mmk.drawPolygon(polygonPoints, 6, mmk.generateColor(204, 252, 203));
-
-    mmk.drawPaddle(30, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
-
-    mmk.drawPolkadot(200, 500, 500, 700);
-
-    /// Mouse Input
-    // cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
-
-    /// Get Delta Time
-    // std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
-
-    /// Delay
-}
-
 int main()
 {
     /// Vector Utils
