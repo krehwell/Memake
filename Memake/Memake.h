@@ -122,27 +122,27 @@ class Memake
         void drawPolygon(Vector2 * edgesPos, int numOfEdges, Color color);
 
         /**
-         * Draw custom polkadot pattern with the given (x1,y1) and (x2,y2) values.
+         * Draw Custom Polkadot Pattern with the given (x1,y1) and (x2,y2) values.
          */
         void drawPolkadot(int x1, int y1, int x2, int y2);
 
         /**
-         * Draw flower with 4 petals by specifying petalSize and petalDistance.
+         * Draw Flower with 4 petals by specifying petalSize and petalDistance.
          */
         void drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor);
 
         /**
-         * Draw paddle by specifying position and height values with additional bar and corner color.
+         * Draw Paddle by specifying position and height values with additional bar and corner color.
          */
         void drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor);
 
         /**
-         * Draw radar with given (x,y) and radius with number of circle expanded
+         * Draw Radar with given (x,y) and radius with number of circle expanded
          */
         void drawRadar(int x, int y, int radius, int count, Color color);
 
         /**
-         * Draw a tree with given (x,y) additional with
+         * Draw a Tree with given (x,y) additional with
          * @param {int} lineLength - initial bark size
          * @param {int} lineLengthSeed - randomizer for next bark to be growth (5-10 for best value)
          * @param {int} angle - angle rotation of tree (90 for straight)
