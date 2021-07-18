@@ -26,22 +26,6 @@ void draw()
     mmk.drawPaddle(200, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
     mmk.drawRadar(700, 50, 20, 8, Colmake.darkred);
     mmk.drawFractalTree(700, 600, 70, 8, 90, 15, Colmake.cadetblue);
-
-    /// Keyboard input
-    if (mmk.getKeyboardInput('a')) {
-        width++;
-    } else if (mmk.getKeyboardInput('e')) {
-        width--;
-    }
-
-    /// Mouse Input
-    // cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
-
-    /// Get Delta Time
-    // std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
-
-    /// Delay
-    mmk.delay(60);
 }
 
 void draw1() {
@@ -58,6 +42,21 @@ void draw1() {
     mmk.drawPaddle(30, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
 
     mmk.drawPolkadot(200, 500, 500, 700);
+
+    /// Keyboard input
+    if (mmk.getKeyboardInput('a')) {
+        width++;
+    } else if (mmk.getKeyboardInput('e')) {
+        width--;
+    }
+
+    /// Mouse Input
+    // cout << mmk.getMousePosX() << " , " << mmk.getMousePosY() << endl;
+
+    /// Get Delta Time
+    // std::cout << "deltatime: " << mmk.getDeltaTime() << std::endl;
+
+    /// Delay
 }
 
 int main()
@@ -70,13 +69,13 @@ int main()
     float length = c.getLength();
     Vector2 normalize = c.getNormalized();
 
-    std::cout << c.x << std::endl;
-    std::cout << c.y << std::endl;
+    // std::cout << c.x << std::endl;
+    // std::cout << c.y << std::endl;
 
-    std::cout << length << std::endl;
+    // std::cout << length << std::endl;
 
-    std::cout << normalize.x << std::endl;
-    std::cout << normalize.y << std::endl;
+    // std::cout << normalize.x << std::endl;
+    // std::cout << normalize.y << std::endl;
 
     /// Memake Game Event
     mmk.update(draw);
