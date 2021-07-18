@@ -26,8 +26,22 @@ class Memake
         ~Memake();
 
         void update(void (*draw)());
-        void setDeltaTime();
+
+        /**
+         * Read what key is pressed
+         * @returns {char} pressedKey
+         */
         char readKeyInput();
+
+        /**
+         * Get max screen width
+         */
+        int getScreenW();
+
+        /**
+         * Get max screen height
+         */
+        int getScreenH();
 
         /**
          * Close Program
@@ -35,7 +49,7 @@ class Memake
         void close();
 
         /**
-         * Delay each call on every frame
+         * Delay call on every frame
          */
         void delay(int delay);
 
@@ -142,6 +156,7 @@ class Memake
         void clear();
         void compose();
         void setMousePos();
+        void setDeltaTime();
 
     private:
         SDL_Renderer *GetRenderer();

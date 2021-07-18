@@ -76,6 +76,16 @@ Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
     return newColor;
 }
 
+int Memake::getScreenH()
+{
+    return h;
+}
+
+int Memake::getScreenW()
+{
+    return w;
+}
+
 void Memake::close()
 {
     keepWindowOpen = false;
