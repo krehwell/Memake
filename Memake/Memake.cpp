@@ -14,6 +14,22 @@ Memake::Memake(int width, int height, string window_name)
 
     window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
+    setScreenBackgroundColor({0x0, 0x0, 0x0});
+}
+
+Memake::Memake(int width, int height, string window_name, Color backgroundColor = {0x0, 0x0, 0x0})
+{
+    w = width;
+    h = height;
+
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+        cout << "Error Initializing Memake";
+    }
+
+    window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
+    renderer = SDL_CreateRenderer(window, -1, 0);
+    bgColor = backgroundColor;
 }
 
 Memake::~Memake()
@@ -68,6 +84,11 @@ void Memake::setDeltaTime()
 
 void Memake::delay(int delay) {
     SDL_Delay(delay);
+}
+
+void Memake::setScreenBackgroundColor(Color color)
+{
+    bgColor = color;
 }
 
 Color Memake::generateColor(Uint8 r, Uint8 g, Uint8 b)
@@ -148,7 +169,7 @@ void Memake::update(void (*draw)())
 
 void Memake::clear()
 {
-    SDL_SetRenderDrawColor(renderer, 0x0, 0x0, 0x0, 0xFF);
+    SDL_SetRenderDrawColor(renderer, bgColor.r, bgColor.g, bgColor.b, 0xFF);
     SDL_RenderClear(renderer);
 }
 

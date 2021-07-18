@@ -23,8 +23,12 @@ class Memake
 {
     public:
         Memake(int width, int height, string window_name);
+        Memake(int width, int height, string window_name, Color backgroundColor);
         ~Memake();
 
+        /**
+         * Memake's Game Loop
+         */
         void update(void (*draw)());
 
         /**
@@ -67,6 +71,11 @@ class Memake
          * Get Y Position of Mouse Cursor.
          */
         int getMousePosY();
+
+        /**
+         * Set screen background color
+         */
+        void setScreenBackgroundColor(Color color);
 
         /**
          * Generate Color by given (red, green, blue) values.
@@ -152,7 +161,6 @@ class Memake
         void drawFractalTree(int x, int y, int lineLength, int lineLengthSeed, int angle, int angleSeed, Color color);
 
     private:
-        void draw();
         void clear();
         void compose();
         void setMousePos();
@@ -173,4 +181,5 @@ class Memake
         int mousePosX, mousePosY;
         float deltatime;
         bool keepWindowOpen = true;
+        Color bgColor;
 };

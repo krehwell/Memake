@@ -4,10 +4,10 @@ Memake mmk(800, 800, "memake");
 
 using namespace std;
 
-int width = 50;
-
 void draw()
 {
+    static int width = 50;
+
     /// Drawing Primitives
     mmk.drawCircle(400, 200, 90, Colmake.darkslategray);
     mmk.drawLine(550, 590, 590, 600, Colmake.azure);
@@ -30,10 +30,13 @@ void draw()
     /// Keyboard input
     switch(mmk.readKeyInput()) {
         case 'a':
+            width--;
+            break;
+        case 'd':
             width++;
             break;
-        case 'e':
-            width--;
+        case 's':
+            mmk.setScreenBackgroundColor(Colmake.darkred);
             break;
     }
 }
