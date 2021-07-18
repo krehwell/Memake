@@ -104,7 +104,6 @@ char Memake::readKeyInput()
                     if(c < ' ' || c > '~') {
                         break;
                     } else  {
-                        std::cout << c << std::endl;
                         return c;
                     }
                 }
