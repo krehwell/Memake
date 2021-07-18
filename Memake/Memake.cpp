@@ -114,30 +114,24 @@ void Memake::close()
 
 char Memake::readKeyInput()
 {
-    SDL_Event userEvent;
-    while (SDL_PollEvent(&userEvent))
-    {
-        switch(userEvent.type) {
-            case SDL_TEXTINPUT:
-                for(int i=0; i < SDL_TEXTINPUTEVENT_TEXT_SIZE; ++i) {
-                    char c = userEvent.text.text[i];
-                    // cancel if a non-ascii char is encountered
-                    if(c < ' ' || c > '~') {
-                        break;
-                    } else  {
-                        return c;
-                    }
+    switch(event.type) {
+        case SDL_TEXTINPUT:
+            for(int i=0; i < SDL_TEXTINPUTEVENT_TEXT_SIZE; ++i) {
+                char c = event.text.text[i];
+                // cancel if a non-ascii char is encountered
+                if(c < ' ' || c > '~') {
+                    break;
+                } else  {
+                    return c;
                 }
-                break;
-        }
+            }
+            break;
     }
     return ' ';
 }
 
 void Memake::update(void (*draw)())
 {
-    SDL_Event event;
-
     while (keepWindowOpen)
     {
         setMousePos();

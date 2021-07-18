@@ -173,6 +173,7 @@ class Memake
         SDL_Renderer *renderer = NULL;
         SDL_Window   *window = NULL;
         SDL_Surface  *surface = NULL;
+        SDL_Event event;
 
         int w;
         int h;
