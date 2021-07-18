@@ -1,3 +1,5 @@
+#define SDL_MAIN_HANDLED
+
 #include "Memake/Memake.h"
 
 Memake mmk(800, 800, "memake");
