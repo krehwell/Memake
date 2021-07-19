@@ -12,7 +12,7 @@ Memake::Memake(int width, int height, string window_name)
         cout << "Error Initializing Memake";
     }
 
-    window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(window_name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
     setScreenBackgroundColor({0x0, 0x0, 0x0});
 }
@@ -40,17 +40,17 @@ Memake::~Memake()
     SDL_Quit();
 }
 
-SDL_Renderer* Memake::GetRenderer()
+SDL_Renderer *Memake::GetRenderer()
 {
     return renderer;
 }
 
-SDL_Window* Memake::GetWindow()
+SDL_Window *Memake::GetWindow()
 {
     return window;
 }
 
-SDL_Surface* Memake::GetSurface()
+SDL_Surface *Memake::GetSurface()
 {
     return surface;
 }
@@ -82,7 +82,8 @@ void Memake::setDeltaTime()
     deltatime = (currentTime - prevTime) / 1000.0f;
 }
 
-void Memake::delay(int delay) {
+void Memake::delay(int delay)
+{
     SDL_Delay(delay);
 }
 
@@ -114,18 +115,23 @@ void Memake::close()
 
 char Memake::readKeyInput()
 {
-    switch(event.type) {
-        case SDL_TEXTINPUT:
-            for(int i=0; i < SDL_TEXTINPUTEVENT_TEXT_SIZE; ++i) {
-                char c = event.text.text[i];
-                // cancel if a non-ascii char is encountered
-                if(c < ' ' || c > '~') {
-                    break;
-                } else  {
-                    return c;
-                }
+    switch (event.type)
+    {
+    case SDL_TEXTINPUT:
+        for (int i = 0; i < SDL_TEXTINPUTEVENT_TEXT_SIZE; ++i)
+        {
+            char c = event.text.text[i];
+            // cancel if a non-ascii char is encountered
+            if (c < ' ' || c > '~')
+            {
+                break;
             }
-            break;
+            else
+            {
+                return c;
+            }
+        }
+        break;
     }
     return ' ';
 }
@@ -209,52 +215,62 @@ void Memake::compose()
   */
 // ============================================================================
 
-void Memake::drawRect(int x, int y, int width, int height, Color color) {
+void Memake::drawRect(int x, int y, int width, int height, Color color)
+{
     Rectangle rect(x, y, width, height);
     rect.Draw(renderer, color);
 }
 
-void Memake::drawCircle(int x, int y, int radius, Color color) {
+void Memake::drawCircle(int x, int y, int radius, Color color)
+{
     Circle circ(x, y, radius);
     circ.Draw(renderer, color);
 }
 
-void Memake::drawLine(int x1, int y1, int x2, int y2, Color color) {
+void Memake::drawLine(int x1, int y1, int x2, int y2, Color color)
+{
     Line line(x1, y1, x2, y2);
     line.Draw(renderer, color);
 }
 
-void Memake::drawEllipse(int x, int y, int rx, int ry, Color color) {
+void Memake::drawEllipse(int x, int y, int rx, int ry, Color color)
+{
     Ellipse ellipse(x, y, rx, ry);
     ellipse.Draw(renderer, color);
 }
 
-void Memake::drawDot(int x, int y, Color color) {
+void Memake::drawDot(int x, int y, Color color)
+{
     Dot dot(x, y);
     dot.Draw(renderer, color);
 }
 
-void Memake::drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color) {
+void Memake::drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Color color)
+{
     Triangle triangle(x1, y1, x2, y2, x3, y3);
     triangle.Draw(renderer, color);
 }
 
-void Memake::drawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color) {
+void Memake::drawTrapezoid(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, Color color)
+{
     Trapezoid trapezoid(x1, y1, x2, y2, x3, y3, x4, y4);
     trapezoid.Draw(renderer, color);
 }
 
-void Memake::drawPolygon(Vector2 * edgesPos, int numOfEdges, Color color) {
+void Memake::drawPolygon(Vector2 *edgesPos, int numOfEdges, Color color)
+{
     Polygon polygon(edgesPos, numOfEdges);
     polygon.Draw(renderer, color);
 }
 
-void Memake::drawPolkadot(int x1, int y1, int x2, int y2) {
+void Memake::drawPolkadot(int x1, int y1, int x2, int y2)
+{
     Polkadot polkadot(x1, y1, x2, y2);
     polkadot.Draw(renderer);
 }
 
-void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor) {
+void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color petalColor, Color centerPetalColor)
+{
     Ellipse upperLeftPetal(x - petalDistance, y - petalDistance, petalSize, petalSize);
     upperLeftPetal.Draw(renderer, petalColor);
 
@@ -271,29 +287,33 @@ void Memake::drawFlower(int x, int y, int petalSize, int petalDistance, Color pe
     middlePetal.Draw(renderer, centerPetalColor);
 }
 
-void Memake::drawEllipseBorder(int x, int y, int rx, int ry, Color color) {
+void Memake::drawEllipseBorder(int x, int y, int rx, int ry, Color color)
+{
     EllipseBorder ellipseBorder(x, y, rx, ry);
     ellipseBorder.Draw(renderer, color);
 }
 
-void Memake::drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor) {
+void Memake::drawPaddle(int x, int y, int width, int height, Color barColor, Color cornerColor)
+{
     Rectangle rect(x, y, width, height);
-    Ellipse rPaddle(x, y + (height/2), height/2, height/2);
-    Ellipse lPaddle(x + width, y + (height/2), height/2, height/2);
+    Ellipse rPaddle(x, y + (height / 2), height / 2, height / 2);
+    Ellipse lPaddle(x + width, y + (height / 2), height / 2, height / 2);
 
     lPaddle.Draw(renderer, cornerColor);
     rPaddle.Draw(renderer, cornerColor);
     rect.Draw(renderer, barColor);
 }
 
-void Memake::drawRadar(int x, int y, int radius, int count, Color color) {
-    for(int i=1; i<=count; i++)
+void Memake::drawRadar(int x, int y, int radius, int count, Color color)
+{
+    for (int i = 1; i <= count; i++)
     {
-        drawEllipseBorder(x, y, i*radius, i*radius, color);
+        drawEllipseBorder(x, y, i * radius, i * radius, color);
     }
 }
 
-void Memake::drawFractalTree(int x, int y, int lineLength, int lineLengthSeed, int angle, int angleSeed, Color color) {
+void Memake::drawFractalTree(int x, int y, int lineLength, int lineLengthSeed, int angle, int angleSeed, Color color)
+{
     FractalTree ft(x, y, lineLength, lineLengthSeed, angle, angleSeed);
     ft.Draw(renderer, color);
 }

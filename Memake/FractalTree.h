@@ -16,7 +16,7 @@ public:
         this->angleSeed = angleSeed;
     }
 
-    void Draw(SDL_Renderer* renderer, Color color)
+    void Draw(SDL_Renderer *renderer, Color color)
     {
         RenderTree(renderer, x, y, lineLength, lineLengthSeed, angle, angleSeed, color);
     }

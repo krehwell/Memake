@@ -14,7 +14,7 @@ public:
         r_y = ry;
     }
 
-    void Draw(SDL_Renderer* renderer, Color color)
+    void Draw(SDL_Renderer *renderer, Color color)
     {
         filledEllipseColor(renderer, c_x, c_y, r_x, r_y, color);
     }

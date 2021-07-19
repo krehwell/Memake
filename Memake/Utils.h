@@ -12,7 +12,10 @@
 inline int random(int min, int max)
 {
     int ret = rand() % (max + 1);
-    if (ret < min) ret += min;
+    if (ret < min)
+    {
+        ret += min;
+    }
     return ret;
 }
 
@@ -25,13 +28,13 @@ double inline rfPart(double x) { return 1 - fPart(x); }
  * FRACTAL TREE UTILS
  *
  */
-inline void plot(SDL_Renderer* renderer, int x, int y, double brightness, SDL_Color color)
+inline void plot(SDL_Renderer *renderer, int x, int y, double brightness, SDL_Color color)
 {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, brightness * 0xFF);
     SDL_RenderDrawPoint(renderer, x, y);
 }
 
-inline void wuLine(SDL_Renderer* renderer, double x0, double y0, double x1, double y1, SDL_Color color)
+inline void wuLine(SDL_Renderer *renderer, double x0, double y0, double x1, double y1, SDL_Color color)
 {
     bool steep = fabs(y1 - y0) > fabs(x1 - x0);
 
@@ -50,7 +53,7 @@ inline void wuLine(SDL_Renderer* renderer, double x0, double y0, double x1, doub
     double dx = x1 - x0;
     double dy = y1 - y0;
 
-    double gradient = dx == 0.0  ? 1.0 : dy / dx;
+    double gradient = dx == 0.0 ? 1.0 : dy / dx;
 
     double xEnd = round(x0);
     double yEnd = y0 + gradient * (xEnd - x0);
@@ -60,13 +63,13 @@ inline void wuLine(SDL_Renderer* renderer, double x0, double y0, double x1, doub
 
     if (steep)
     {
-        plot(renderer, yPixel1,     xPixel1, rfPart(yEnd) * xGap, color);
-        plot(renderer, yPixel1 + 1, xPixel1,  fPart(yEnd) * xGap, color);
+        plot(renderer, yPixel1, xPixel1, rfPart(yEnd) * xGap, color);
+        plot(renderer, yPixel1 + 1, xPixel1, fPart(yEnd) * xGap, color);
     }
 
     else
     {
-        plot(renderer, xPixel1, yPixel1,    rfPart(yEnd) * xGap, color);
+        plot(renderer, xPixel1, yPixel1, rfPart(yEnd) * xGap, color);
         plot(renderer, xPixel1, yPixel1 + 1, fPart(yEnd) * xGap, color);
     }
 
@@ -80,32 +83,32 @@ inline void wuLine(SDL_Renderer* renderer, double x0, double y0, double x1, doub
 
     if (steep)
     {
-        plot(renderer, yPixel2,     xPixel2, rfPart(yEnd) * xGap, color);
-        plot(renderer, yPixel2 + 1, xPixel2,  fPart(yEnd) * xGap, color);
+        plot(renderer, yPixel2, xPixel2, rfPart(yEnd) * xGap, color);
+        plot(renderer, yPixel2 + 1, xPixel2, fPart(yEnd) * xGap, color);
 
         for (int x = xPixel1 + 1; x <= (xPixel2 - 1); x++)
         {
-            plot(renderer, yIntersection    , x, rfPart(yIntersection), color);
-            plot(renderer, yIntersection + 1, x,  fPart(yIntersection), color);
+            plot(renderer, yIntersection, x, rfPart(yIntersection), color);
+            plot(renderer, yIntersection + 1, x, fPart(yIntersection), color);
             yIntersection += gradient;
         }
     }
 
     else
     {
-        plot(renderer, xPixel2, yPixel2,    rfPart(yEnd) * xGap, color);
+        plot(renderer, xPixel2, yPixel2, rfPart(yEnd) * xGap, color);
         plot(renderer, xPixel2, yPixel2 + 1, fPart(yEnd) * xGap, color);
 
         for (int x = xPixel1 + 1; x <= (xPixel2 - 1); x++)
         {
-            plot(renderer, x, yIntersection    , rfPart(yIntersection), color);
-            plot(renderer, x, yIntersection + 1,  fPart(yIntersection), color);
+            plot(renderer, x, yIntersection, rfPart(yIntersection), color);
+            plot(renderer, x, yIntersection + 1, fPart(yIntersection), color);
             yIntersection += gradient;
         }
     }
 }
 
-inline void RenderTree(SDL_Renderer* renderer, int startX, int startY, int lineLength, int lineLengthSeed, int angle, int angleSeed, SDL_Color color = {255, 255, 255, 255})
+inline void RenderTree(SDL_Renderer *renderer, int startX, int startY, int lineLength, int lineLengthSeed, int angle, int angleSeed, SDL_Color color = {255, 255, 255, 255})
 {
     // Uncomment for slow animation
     //SDL_RenderPresent(renderer);
@@ -164,7 +167,6 @@ inline void RenderTree(SDL_Renderer* renderer, int startX, int startY, int lineL
 static int *primitivesPolyIntsGlobal = NULL;
 static int primitivesPolyAllocatedGlobal = 0;
 
-
 /*
  *
  * GENERICS UTILS
@@ -195,9 +197,8 @@ inline int hline(SDL_Renderer *renderer, int x1, int x2, int y)
 
 inline int _gfxPrimitivesCompareInt(const void *a, const void *b)
 {
-    return (*(const int *) a) - (*(const int *) b);
+    return (*(const int *)a) - (*(const int *)b);
 }
-
 
 /*
  *
@@ -247,11 +248,12 @@ inline int filledEllipseRGBA(SDL_Renderer *renderer, int x, int y, int rx, int r
         ix = 0;
         iy = rx * 64;
 
-        do {
+        do
+        {
             h = (ix + 32) >> 6;
             i = (iy + 32) >> 6;
-            j = (h *ry) / rx;
-            k = (i *ry) / rx;
+            j = (h * ry) / rx;
+            k = (i * ry) / rx;
 
             if ((ok != k) && (oj != k))
             {
@@ -293,10 +295,12 @@ inline int filledEllipseRGBA(SDL_Renderer *renderer, int x, int y, int rx, int r
         ix = 0;
         iy = ry * 64;
 
-        do { 	h = (ix + 32) >> 6;
+        do
+        {
+            h = (ix + 32) >> 6;
             i = (iy + 32) >> 6;
-            j = (h *rx) / ry;
-            k = (i *rx) / ry;
+            j = (h * rx) / ry;
+            k = (i * rx) / ry;
 
             if ((oi != i) && (oh != i))
             {
@@ -342,13 +346,12 @@ inline int filledEllipseColor(SDL_Renderer *renderer, int x, int y, int rx, int 
     return filledEllipseRGBA(renderer, x, y, rx, ry, color);
 }
 
-
 /*
  *
  * POLYGON FUNCTIONS UTILS
  *
  */
-inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const int * vy, int n, Uint8 r, Uint8 g, Uint8 b, Uint8 a, int **polyInts, int *polyAllocated)
+inline int filledPolygonRGBAMT(SDL_Renderer *renderer, const int *vx, const int *vy, int n, Uint8 r, Uint8 g, Uint8 b, Uint8 a, int **polyInts, int *polyAllocated)
 {
     int result;
     int i;
@@ -363,43 +366,57 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
     int gfxPrimitivesPolyAllocated = 0;
 
     /* Vertex array NULL check */
-    if (vx == NULL) {
+    if (vx == NULL)
+    {
         return (-1);
     }
-    if (vy == NULL) {
+    if (vy == NULL)
+    {
         return (-1);
     }
 
     /* Sanity check number of edges */
-    if (n < 3) {
+    if (n < 3)
+    {
         return -1;
     }
 
     /* Map polygon cache */
-    if ((polyInts==NULL) || (polyAllocated==NULL)) {
+    if ((polyInts == NULL) || (polyAllocated == NULL))
+    {
         /* Use global cache */
         gfxPrimitivesPolyInts = primitivesPolyIntsGlobal;
         gfxPrimitivesPolyAllocated = primitivesPolyAllocatedGlobal;
-    } else {
+    }
+    else
+    {
         /* Use local cache */
         gfxPrimitivesPolyInts = *polyInts;
         gfxPrimitivesPolyAllocated = *polyAllocated;
     }
 
     /* Allocate temp array, only grow array */
-    if (!gfxPrimitivesPolyAllocated) {
-        gfxPrimitivesPolyInts = (int *) malloc(sizeof(int) * n);
+    if (!gfxPrimitivesPolyAllocated)
+    {
+        gfxPrimitivesPolyInts = (int *)malloc(sizeof(int) * n);
         gfxPrimitivesPolyAllocated = n;
-    } else {
-        if (gfxPrimitivesPolyAllocated < n) {
-            gfxPrimitivesPolyIntsNew = (int *) realloc(gfxPrimitivesPolyInts, sizeof(int) * n);
-            if (!gfxPrimitivesPolyIntsNew) {
-                if (!gfxPrimitivesPolyInts) {
+    }
+    else
+    {
+        if (gfxPrimitivesPolyAllocated < n)
+        {
+            gfxPrimitivesPolyIntsNew = (int *)realloc(gfxPrimitivesPolyInts, sizeof(int) * n);
+            if (!gfxPrimitivesPolyIntsNew)
+            {
+                if (!gfxPrimitivesPolyInts)
+                {
                     free(gfxPrimitivesPolyInts);
                     gfxPrimitivesPolyInts = NULL;
                 }
                 gfxPrimitivesPolyAllocated = 0;
-            } else {
+            }
+            else
+            {
                 gfxPrimitivesPolyInts = gfxPrimitivesPolyIntsNew;
                 gfxPrimitivesPolyAllocated = n;
             }
@@ -407,61 +424,81 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
     }
 
     /* Check temp array */
-    if (gfxPrimitivesPolyInts==NULL) {
+    if (gfxPrimitivesPolyInts == NULL)
+    {
         gfxPrimitivesPolyAllocated = 0;
     }
 
     /* Update cache variables */
-    if ((polyInts==NULL) || (polyAllocated==NULL)) {
-        primitivesPolyIntsGlobal =  gfxPrimitivesPolyInts;
+    if ((polyInts == NULL) || (polyAllocated == NULL))
+    {
+        primitivesPolyIntsGlobal = gfxPrimitivesPolyInts;
         primitivesPolyAllocatedGlobal = gfxPrimitivesPolyAllocated;
-    } else {
+    }
+    else
+    {
         *polyInts = gfxPrimitivesPolyInts;
         *polyAllocated = gfxPrimitivesPolyAllocated;
     }
 
     /* Check temp array again */
-    if (gfxPrimitivesPolyInts==NULL) {
-        return(-1);
+    if (gfxPrimitivesPolyInts == NULL)
+    {
+        return (-1);
     }
 
     /* Determine Y maxima */
     miny = vy[0];
     maxy = vy[0];
-    for (i = 1; (i < n); i++) {
-        if (vy[i] < miny) {
+    for (i = 1; (i < n); i++)
+    {
+        if (vy[i] < miny)
+        {
             miny = vy[i];
-        } else if (vy[i] > maxy) {
+        }
+        else if (vy[i] > maxy)
+        {
             maxy = vy[i];
         }
     }
 
     /* Draw, scanning y */
     result = 0;
-    for (y = miny; (y <= maxy); y++) {
+    for (y = miny; (y <= maxy); y++)
+    {
         ints = 0;
-        for (i = 0; (i < n); i++) {
-            if (!i) {
+        for (i = 0; (i < n); i++)
+        {
+            if (!i)
+            {
                 ind1 = n - 1;
                 ind2 = 0;
-            } else {
+            }
+            else
+            {
                 ind1 = i - 1;
                 ind2 = i;
             }
             y1 = vy[ind1];
             y2 = vy[ind2];
-            if (y1 < y2) {
+            if (y1 < y2)
+            {
                 x1 = vx[ind1];
                 x2 = vx[ind2];
-            } else if (y1 > y2) {
+            }
+            else if (y1 > y2)
+            {
                 y2 = vy[ind1];
                 y1 = vy[ind2];
                 x2 = vx[ind1];
                 x1 = vx[ind2];
-            } else {
+            }
+            else
+            {
                 continue;
             }
-            if ( ((y >= y1) && (y < y2)) || ((y == maxy) && (y > y1) && (y <= y2)) ) {
+            if (((y >= y1) && (y < y2)) || ((y == maxy) && (y > y1) && (y <= y2)))
+            {
                 gfxPrimitivesPolyInts[ints++] = ((65536 * (y - y1)) / (y2 - y1)) * (x2 - x1) + (65536 * x1);
             }
         }
@@ -470,13 +507,15 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
 
         /* Set color */
         result = 0;
-        if (a != 255) result |= SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+        if (a != 255)
+            result |= SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
         result |= SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
-        for (i = 0; (i < ints); i += 2) {
+        for (i = 0; (i < ints); i += 2)
+        {
             xa = gfxPrimitivesPolyInts[i] + 1;
             xa = (xa >> 16) + ((xa & 32768) >> 15);
-            xb = gfxPrimitivesPolyInts[i+1] - 1;
+            xb = gfxPrimitivesPolyInts[i + 1] - 1;
             xb = (xb >> 16) + ((xb & 32768) >> 15);
             result |= hline(renderer, xa, xb, y);
         }
@@ -485,7 +524,7 @@ inline int filledPolygonRGBAMT(SDL_Renderer * renderer, const int * vx, const in
     return (result);
 }
 
-inline int filledPolygonColor(SDL_Renderer * renderer, const int * vx, const int * vy, int n, SDL_Color color)
+inline int filledPolygonColor(SDL_Renderer *renderer, const int *vx, const int *vy, int n, SDL_Color color)
 {
     return filledPolygonRGBAMT(renderer, vx, vy, n, color.r, color.g, color.b, color.a, NULL, NULL);
 }
@@ -495,9 +534,9 @@ inline int filledPolygonColor(SDL_Renderer * renderer, const int * vx, const int
  * ELLIPSE BORDER UTILS: Draw one quadrant arc, and mirror the other 4 quadrants
  *
  */
-inline void borderEllipse(SDL_Renderer* r, int x0, int y0, int radiusX, int radiusY, SDL_Color color)
+inline void borderEllipse(SDL_Renderer *r, int x0, int y0, int radiusX, int radiusY, SDL_Color color)
 {
-    float pi  = 3.14159265358979323846264338327950288419716939937510;
+    float pi = 3.14159265358979323846264338327950288419716939937510;
     float pih = pi / 2.0; //half of pi
 
     //drew  28 lines with   4x4  circle with precision of 150 0ms
@@ -507,39 +546,39 @@ inline void borderEllipse(SDL_Renderer* r, int x0, int y0, int radiusX, int radi
     float theta = 0;     // angle that will be increased each loop
 
     //starting point
-    int x  = (float)radiusX * cos(theta);//start point
-    int y  = (float)radiusY * sin(theta);//start point
+    int x = (float)radiusX * cos(theta); //start point
+    int y = (float)radiusY * sin(theta); //start point
     int x1 = x;
     int y1 = y;
 
     SDL_SetRenderDrawColor(r, color.r, color.g, color.b, 255);
     //repeat until theta >= 90;
-    float step = pih/(float)prec; // amount to add to theta each time (degrees)
-    for(theta=step;  theta <= pih;  theta+=step)//step through only a 90 arc (1 quadrant)
+    float step = pih / (float)prec;                 // amount to add to theta each time (degrees)
+    for (theta = step; theta <= pih; theta += step) //step through only a 90 arc (1 quadrant)
     {
         //get new point location
         x1 = (float)radiusX * cosf(theta) + 0.5; //new point (+.5 is a quick rounding method)
         y1 = (float)radiusY * sinf(theta) + 0.5; //new point (+.5 is a quick rounding method)
 
         //draw line from previous point to new point, ONLY if point incremented
-        if( (x != x1) || (y != y1) )//only draw if coordinate changed
+        if ((x != x1) || (y != y1)) //only draw if coordinate changed
         {
-            SDL_RenderDrawLine(r, x0 + x, y0 - y,  x0 + x1, y0 - y1 );//quadrant TR
-            SDL_RenderDrawLine(r, x0 - x, y0 - y,  x0 - x1, y0 - y1 );//quadrant TL
-            SDL_RenderDrawLine(r, x0 - x, y0 + y,  x0 - x1, y0 + y1 );//quadrant BL
-            SDL_RenderDrawLine(r, x0 + x, y0 + y,  x0 + x1, y0 + y1 );//quadrant BR
+            SDL_RenderDrawLine(r, x0 + x, y0 - y, x0 + x1, y0 - y1); //quadrant TR
+            SDL_RenderDrawLine(r, x0 - x, y0 - y, x0 - x1, y0 - y1); //quadrant TL
+            SDL_RenderDrawLine(r, x0 - x, y0 + y, x0 - x1, y0 + y1); //quadrant BL
+            SDL_RenderDrawLine(r, x0 + x, y0 + y, x0 + x1, y0 + y1); //quadrant BR
         }
         //save previous points
-        x = x1;//save new previous point
-        y = y1;//save new previous point
+        x = x1; //save new previous point
+        y = y1; //save new previous point
     }
     //arc did not finish because of rounding, so finish the arc
-    if(x!=0)
+    if (x != 0)
     {
-        x=0;
-        SDL_RenderDrawLine(r, x0 + x, y0 - y,  x0 + x1, y0 - y1 );//quadrant TR
-        SDL_RenderDrawLine(r, x0 - x, y0 - y,  x0 - x1, y0 - y1 );//quadrant TL
-        SDL_RenderDrawLine(r, x0 - x, y0 + y,  x0 - x1, y0 + y1 );//quadrant BL
-        SDL_RenderDrawLine(r, x0 + x, y0 + y,  x0 + x1, y0 + y1 );//quadrant BR
+        x = 0;
+        SDL_RenderDrawLine(r, x0 + x, y0 - y, x0 + x1, y0 - y1); //quadrant TR
+        SDL_RenderDrawLine(r, x0 - x, y0 - y, x0 - x1, y0 - y1); //quadrant TL
+        SDL_RenderDrawLine(r, x0 - x, y0 + y, x0 - x1, y0 + y1); //quadrant BL
+        SDL_RenderDrawLine(r, x0 + x, y0 + y, x0 + x1, y0 + y1); //quadrant BR
     }
 }

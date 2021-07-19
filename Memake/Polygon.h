@@ -10,19 +10,19 @@ public:
     {
         this->pos = pos;
         this->numOfEdges = numOfEdges;
-
     }
 
-    void Draw(SDL_Renderer* renderer, Color color)
+    void Draw(SDL_Renderer *renderer, Color color)
     {
         int vx[numOfEdges], vy[numOfEdges];
 
-        for (int i = 0; i < numOfEdges; i++) {
+        for (int i = 0; i < numOfEdges; i++)
+        {
             vx[i] = pos[i].x;
             vy[i] = pos[i].y;
         }
 
-        filledPolygonColor(renderer,vx,vy,numOfEdges,color);
+        filledPolygonColor(renderer, vx, vy, numOfEdges, color);
     }
 
     Vector2 *pos;

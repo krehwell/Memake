@@ -18,19 +18,19 @@ public:
         this->y4 = y4;
     }
 
-    void Draw(SDL_Renderer* renderer, Color color)
+    void Draw(SDL_Renderer *renderer, Color color)
     {
         int vx[4], vy[4];
-        vx[0]=x1;
-        vx[1]=x2;
-        vx[2]=x3;
-        vx[3]=x4;
-        vy[0]=y1;
-        vy[1]=y2;
-        vy[2]=y3;
-        vy[3]=y4;
+        vx[0] = x1;
+        vx[1] = x2;
+        vx[2] = x3;
+        vx[3] = x4;
+        vy[0] = y1;
+        vy[1] = y2;
+        vy[2] = y3;
+        vy[3] = y4;
 
-        filledPolygonColor(renderer,vx,vy,4,color);
+        filledPolygonColor(renderer, vx, vy, 4, color);
     }
 
     int x1;
