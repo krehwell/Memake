@@ -32,15 +32,15 @@ void draw()
     /// Keyboard input
     switch (mmk.readKeyInput())
     {
-    case 'a':
-        width--;
-        break;
-    case 'd':
-        width++;
-        break;
-    case 's':
-        mmk.setScreenBackgroundColor(Colmake.darkred);
-        break;
+        case 'a':
+            width--;
+            break;
+        case 'd':
+            width++;
+            break;
+        case 's':
+            mmk.setScreenBackgroundColor(Colmake.darkred);
+            break;
     }
 }
 
@@ -65,10 +65,10 @@ class Player {
             switch (mmk.readKeyInput())
             {
                 case 'a':
-                    x--;
+                    x-=2;
                     break;
                 case 'd':
-                    x++;
+                    x+=2;
                     break;
             }
         }
@@ -127,18 +127,8 @@ class Ball {
         }
 };
 
-Player player(300, 700, 80, 40);
-Ball ball(30);
-
-void pingphong() {
-    player.update();
-    ball.update();
-    ball.checkCollision(player);
-    mmk.delay(3);
-}
 /// END OF PING PHONG GAME LOOP -----
-
-int main()
+void TestVectorUtils()
 {
     /// Vector Utils
     Vector2 a = {2, 4};
@@ -155,9 +145,21 @@ int main()
 
     // std::cout << normalize.x << std::endl;
     // std::cout << normalize.y << std::endl;
+}
 
-    /// Memake Game Event
-    mmk.update(pingphong);
+int main()
+{
+    Player player(100, 700, 80, 40);
+    Ball ball(30);
+
+    /// Memake Game Event || use lambda instead if don't want to pass a function
+    /// lambda = [&](){ ...code }
+    mmk.update([&](){
+            player.update();
+            ball.update();
+            ball.checkCollision(player);
+            mmk.delay(3);
+    });
 
     return 0;
 }

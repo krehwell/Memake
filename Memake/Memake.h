@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <functional>
 
 #include "Colmake.h"
 #include "Vector2d.h"
@@ -29,7 +30,7 @@ class Memake
         /**
          * Memake's Game Loop
          */
-        void update(void (*draw)());
+        void update(std::function<void()>draw);
 
         /**
          * Read what key is pressed

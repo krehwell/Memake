@@ -136,7 +136,7 @@ char Memake::readKeyInput()
     return ' ';
 }
 
-void Memake::update(void (*draw)())
+void Memake::update(std::function<void()>draw)
 {
     while (keepWindowOpen)
     {
