@@ -126,11 +126,11 @@ class Ball {
             }
         }
 };
-
 /// END OF PING PHONG GAME LOOP -----
+
+/// Vector Utils
 void TestVectorUtils()
 {
-    /// Vector Utils
     Vector2 a = {2, 4};
     Vector2 b = {5, 2};
     Vector2 c = a + b;
