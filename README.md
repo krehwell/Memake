@@ -15,17 +15,16 @@ int main() {
 }
 ```
 
+## Dependencies
+1. SDL2: `pacman -S sdl2` || `apt-get install libsdl2-dev`
+
+- Since I am using Arch-btw, I just copy the `apt` command from internet without testing. So, I am not sure it will work on Ubuntu or not.
+
 ## Run
 1. `git clone https://github.com/krehwell/PSM-2.git`
 2. `cd PSM-2`
 3. `make build`
 4. `./main`
-
-## Dependencies
-1. SDL2: `pacman -S sdl2` || `apt-get install libsdl2-dev`
-2. Glew (Optional) _(so far there is no implementation of this)_: `pacman -S glew` || `apt-get install glew-utils`
-
-- Since I am using Arch-btw, I just copy the `apt` command from internet without testing. So, I am not sure it will work on Ubuntu or not.
 
 ## Why This Exists?
 Well by default SDL never provides you function like to Draw Circle nor Ellipse or even to Draw Triangle/Polygon. What SDL provides is
