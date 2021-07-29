@@ -4,9 +4,12 @@ Memake mmk(800, 800, "memake");
 
 using namespace std;
 
+int width = 50;
+int mPX = 400;
+int mPY = 400;
+
 void draw()
 {
-    static int width = 50;
 
     /// Drawing Primitives
     mmk.drawCircle(400, 200, 90, Colmake.darkslategray);
@@ -40,124 +43,18 @@ void draw()
             mmk.setScreenBackgroundColor(Colmake.darkred);
             break;
     }
-}
 
-/// START OF PING PHONG GAME LOOP -----
-class Player {
-    public:
-        int x, y, width, height;
-    public:
-        Player(int _x, int _y, int _w, int _h): x(_x), y(_y), width(_w), height(_h) {}
-
-        void update() {
-            compose();
-            draw();
-        }
-
-        void draw() {
-            mmk.drawPaddle(x, y, width, height, Colmake.darkseagreen, Colmake.cornsilk);
-        }
-
-        void compose() {
-            /// Keyboard input
-            switch (mmk.readKeyInput())
-            {
-                case 'a':
-                    x-=2;
-                    break;
-                case 'd':
-                    x+=2;
-                    break;
-            }
-        }
-};
-
-class Ball {
-    private:
-        int r, x = 500, y = 650;
-        int xM = 1, yM = 1;
-        Color color = Colmake.darkblue;
-    public:
-        Ball(int _r): r(_r){}
-
-        void update() {
-            compose();
-            draw();
-        }
-
-        void draw() {
-            mmk.drawCircle(x, y, r, color);
-        }
-
-        void compose() {
-            /// Keyboard input
-            x += xM;
-            y += yM;
-
-            if (x >= 800) {
-                xM *= -1;
-            } else if (x <= 0) {
-                xM *= -1;
-            }
-
-            if (y >= 800) {
-                yM *= -1;
-            } else if (y <= 0) {
-                yM *= -1;
-            }
-
-            switch (mmk.readKeyInput())
-            {
-                case 's':
-                    color = (mmk.generateColor(random(0, 255), random(0, 255), random(0, 255)));
-                    break;
-            }
-        }
-
-        void checkCollision(Player &p) {
-            if (x < p.x + p.width &&
-                    x + r > p.x &&
-                    y < p.y + p.height &&
-                    y + r > p.y) {
-                yM *= -1;
-                xM *= -1;
-            }
-        }
-};
-/// END OF PING PHONG GAME LOOP -----
-
-/// Vector Utils
-void TestVectorUtils()
-{
-    Vector2 a = {2, 4};
-    Vector2 b = {5, 2};
-    Vector2 c = a + b;
-
-    float length = c.getLength();
-    Vector2 normalize = c.getNormalized();
-
-    // std::cout << c.x << std::endl;
-    // std::cout << c.y << std::endl;
-
-    // std::cout << length << std::endl;
-
-    // std::cout << normalize.x << std::endl;
-    // std::cout << normalize.y << std::endl;
+    /// Mouse input
+    mPX = mmk.getMousePosX();
+    mPY = mmk.getMousePosY();
+    mmk.drawCircle(mPX, mPY, 30, Colmake.yellow);
 }
 
 int main()
 {
-    Player player(100, 700, 80, 40);
-    Ball ball(30);
-
     /// Memake Game Event || use lambda instead if don't want to pass a function
     /// lambda = [&](){ ...code }
-    mmk.update([&](){
-            player.update();
-            ball.update();
-            ball.checkCollision(player);
-            mmk.delay(3);
-    });
+    mmk.update(draw);
 
     return 0;
 }
