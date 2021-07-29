@@ -27,7 +27,7 @@ Memake::Memake(int width, int height, string window_name, Color backgroundColor 
         cout << "Error Initializing Memake";
     }
 
-    window = SDL_CreateWindow(window_name.c_str(), 0, 0, w, h, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(window_name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
     bgColor = backgroundColor;
 }
