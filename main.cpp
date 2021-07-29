@@ -43,6 +43,7 @@ void draw()
             mmk.setScreenBackgroundColor(Colmake.darkred);
             break;
     }
+
     /// Mouse input
     mPX = mmk.getMousePosX();
     mPY = mmk.getMousePosY();
