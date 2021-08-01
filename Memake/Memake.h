@@ -18,13 +18,13 @@
 #include "Polkadot.h"
 #include "FractalTree.h"
 
-using namespace std;
+#define lambda [&]()
 
 class Memake
 {
     public:
-        Memake(int width, int height, string window_name);
-        Memake(int width, int height, string window_name, Color backgroundColor);
+        Memake(int width, int height, std::string window_name);
+        Memake(int width, int height, std::string window_name, Color backgroundColor);
         ~Memake();
 
         /**

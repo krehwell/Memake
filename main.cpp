@@ -55,7 +55,9 @@ int main()
 {
     /// Memake Game Event || use lambda instead if don't want to pass a function
     /// lambda = [&](){ ...code }
-    mmk.update(draw);
+    mmk.update(lambda{
+        mmk.drawFractalTree(400, 700, 85, 8, 90, 15, Colmake.cornsilk);
+    });
 
     return 0;
 }

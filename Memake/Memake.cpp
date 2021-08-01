@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <math.h>
 
-Memake::Memake(int width, int height, string window_name)
+Memake::Memake(int width, int height, std::string window_name)
 {
     w = width;
     h = height;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        cout << "Error Initializing Memake";
+        std::cout << "Error Initializing Memake";
     }
 
     window = SDL_CreateWindow(window_name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
@@ -17,14 +17,14 @@ Memake::Memake(int width, int height, string window_name)
     setScreenBackgroundColor({0x0, 0x0, 0x0});
 }
 
-Memake::Memake(int width, int height, string window_name, Color backgroundColor = {0x0, 0x0, 0x0})
+Memake::Memake(int width, int height, std::string window_name, Color backgroundColor = {0x0, 0x0, 0x0})
 {
     w = width;
     h = height;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        cout << "Error Initializing Memake";
+        std::cout << "Error Initializing Memake";
     }
 
     window = SDL_CreateWindow(window_name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
