@@ -3,13 +3,13 @@
 SRC_DIR := ./Memake
 CFILES := $(wildcard $(SRC_DIR)/*.cpp)
 PROG := main
-CFLAGS := -Wall -Wextra -g -std=c++14
+CFLAGS := -Wall -Wextra -g -std=c++11
 LDFLAGS :=
 ########################
 
 # -MMD generates dependencies while compiling
 CFLAGS += -MMD
-CC := g++
+CC := clang++
 
 OBJFILES := $(CFILES:.cpp=.o)
 DEPFILES := $(CFILES:.cpp=.d)
