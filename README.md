@@ -23,7 +23,7 @@ Download project based on tools you use to run C++:
 - Manual Compile (for chad): `git clone https://github.com/krehwell/Memake.git`
 - Visual Studio Code: [GDrive](https://drive.google.com/uc?id=1miBk4zrwGcTGMf8Lj65ge2YUiKuP8WUz&export=download)
 - Visual Studio: [GDrive](https://drive.google.com/uc?id=1CSqh1opYfNVwt_4Vw8hDVYIA1FBPTcxu&export=download)
-- Dev-C++: [GDrive](https://drive.google.com/uc?id=1F3pp0qB9LLmcZcxSXtMS_7RjqIELvIBo&export=download)
+- Dev-C++: [GDrive](https://drive.google.com/u/1/uc?id=1ztK2zg4faMglrwNrvJa429BcZ2al5PK-&export=download)
 
 
 ## Installation
@@ -72,7 +72,79 @@ Download project based on tools you use to run C++:
 </details>
 
 
+## Example Codes
 
+### Animation with Keyboard 
+![keyboard animation](https://i.imgur.com/TFwBkr5.gif)  
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
 
+Memake mmk(800, 800, "memake");
 
+int x = 350;
+int y = 350;
 
+void draw() {
+    mmk.drawRect(x, y, 100, 100, Colmake.red);  // draw rectangle with a red color
+    
+    // get keyboard's key pressed  
+    switch(mmk.readKeyInput()) {
+        case 'd':
+            x++;
+            break;
+        case 'a':
+            x--;
+            break;
+        case 's':
+            y++;
+            break;
+    	case 'w':
+            y--;
+            break;
+	}
+}
+
+int main()
+{
+    mmk.update(draw);
+
+    return 0;
+}
+```  
+</details>
+  
+### Animation with Mouse 
+![keyboard animation](https://i.imgur.com/MTdYxTl.gif)
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
+
+Memake mmk(800, 800, "memake");
+
+int x = 350;
+int y = 350;
+
+void draw() {
+    mmk.drawCircle(x, y, 40, Colmake.yellow);  // draw circle with a yellow color
+    
+    // get mouse position
+    x = mmk.getMousePosX();
+    y = mmk.getMousePosY();
+}
+
+int main()
+{
+    mmk.update(draw);
+
+    return 0;
+}
+
+```  
+</details>
