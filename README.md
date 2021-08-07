@@ -75,7 +75,7 @@ Download project based on tools you use to run C++:
 ## Example Codes
 
 ### Animation with Keyboard 
-![keyboard animation](https://i.imgur.com/TFwBkr5.gif)  
+<img src="https://i.imgur.com/TFwBkr5.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
     
@@ -115,10 +115,11 @@ int main()
     return 0;
 }
 ```  
+	
 </details>
   
 ### Animation with Mouse 
-![keyboard animation](https://i.imgur.com/MTdYxTl.gif)
+<img src="https://i.imgur.com/MTdYxTl.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
     
@@ -145,6 +146,107 @@ int main()
 
     return 0;
 }
+
+```  
+	
+</details>
+
+### Randomize Screen Background Every X second 
+<img src="https://i.imgur.com/Jri59qH.gif" width="35%">
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
+
+Memake mmk(800, 800, "memake");
+
+int x = 350;
+int y = 350;
+
+void draw() {
+    mmk.drawFractalTree(400, 750, 150, 22, 90, 20, Colmake.cornsilk);
+    
+    // set new background color 
+    Color newColor = mmk.generateColor(random(0,255), random(0,255), random(0,255));
+    mmk.setScreenBackgroundColor(newColor);
+    
+    mmk.delay(200);  // delay to slow re-rendering 
+}
+
+int main()
+{
+    mmk.update(draw);
+
+    return 0;
+}
+
+```  
+</details>
+
+### Bouncing Ball Animation 
+<img src="https://i.imgur.com/dEMaNvI.gif" width="35%">
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
+
+Memake mmk(800, 800, "memake");
+
+class Ball {
+    public:
+        int x, y, r;
+        int xdirection = 1, ydirection = 1;
+        
+        Ball(int _x, int _y, int _r) {
+            x = _x;
+            y = _y;
+            r = _r;
+        }
+        
+        void update() {
+            draw();
+            move();
+            checkScreenClamp();
+        }
+        
+        void draw() {
+            mmk.drawCircle(x, y, r, Colmake.beige);
+        }
+        
+        void move() {
+            x += xdirection;
+            y += ydirection;
+        }
+        
+        void checkScreenClamp() {  // check screen's edge to change ball's direction
+            if (x <= 0 || x >= mmk.getScreenW()) {
+                xdirection *= -1;
+            }
+        	
+            if (y <= 0 || y >= mmk.getScreenH()) {
+                ydirection *= -1;
+            }
+        }
+};
+
+int main()
+{
+    Ball ball(230, 520, 40);
+	
+    // use lambda to utilize local scope instead of define everything as global variable
+    mmk.update([&](){
+        ball.update();
+        
+        mmk.delay(1);
+    });
+
+    return 0;
+}
+
 
 ```  
 </details>
