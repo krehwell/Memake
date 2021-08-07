@@ -28,8 +28,8 @@ Download project based on tools you use to run C++:
 
 ## Installation
 <details>
-<summary>Visual Studio Code (VsCode) Installation: </summary>  
-    
+<summary>Visual Studio Code (VsCode) Installation: (<a href="https://imgur.com/gallery/Xa16Wzh">Simple installation page</a>) </summary>  
+
 1. Download the project and extract
 2. Inside the extracted folder go to `__install__` folder  
     ![vscode1](https://i.imgur.com/zAySyOA.png)  
@@ -46,9 +46,9 @@ Download project based on tools you use to run C++:
 </details>
 
 <details>
-<summary>Visual Studio Installation: </summary>  
-    <b>note</b> : This example is run on Visual Studio 2019, it should run just fine on 2017 too.
-    
+<summary>Visual Studio Installation: (<a href="https://imgur.com/gallery/B6VY4PZ">Simple installation page</a>)</summary>  
+<b>note</b> : This example is run on Visual Studio 2019, it should run just fine on 2017 too.  
+  
 1. Download the project and extract
 2. Inside the extracted folder open the "Memake_VisualStudio.sln"  
     ![vs1](https://i.imgur.com/zAySyOA.png)  
@@ -59,7 +59,8 @@ Download project based on tools you use to run C++:
 </details>
 
 <details>
-<summary>Dev-C++ Installation: </summary>  
+<summary>Dev-C++ Installation: (<a href="https://imgur.com/a/9dTH38w">Simple installation page</a>) </summary>
+ 
     
 1. Download the project and extract
 2. Inside the extracted folder click "project.dev" to open the project in Dev-C++  
