@@ -20,19 +20,18 @@ int main() {
 
 ## Download
 Download project based on tools you use to run C++:
-- Manual Compile (for chad): `git clone https://github.com/krehwell/PSM-2.git`
+- Manual Compile (for chad): `git clone https://github.com/krehwell/Memake.git`
 - Visual Studio Code: [GDrive](https://drive.google.com/uc?id=1miBk4zrwGcTGMf8Lj65ge2YUiKuP8WUz&export=download)
-- Visual Studio: [GDrive]()
-- Dev-C++: [GDrive]()
+- Visual Studio: [GDrive](https://drive.google.com/uc?id=1CSqh1opYfNVwt_4Vw8hDVYIA1FBPTcxu&export=download)
+- Dev-C++: [GDrive](https://drive.google.com/uc?id=1F3pp0qB9LLmcZcxSXtMS_7RjqIELvIBo&export=download)
 
 
 ## Installation
 <details>
 <summary>Visual Studio Code (VsCode) Installation: </summary>  
     
-    
-1. Download the project and extract.
-2. Inside the extracted folder go to `__install__` folder.  
+1. Download the project and extract
+2. Inside the extracted folder go to `__install__` folder  
     ![vscode1](https://i.imgur.com/zAySyOA.png)  
 3. Move `MinGW` folder to `C:`  
     ![vscode2](https://i.imgur.com/ev9vPj2.png) 
@@ -43,10 +42,33 @@ Download project based on tools you use to run C++:
 6. Install C++ extension for VsCode
     ![vscode5](https://i.imgur.com/dkXNRWW.png) 
 7. Run project by pressing F5
-    ![vscode4](https://i.imgur.com/4ESu7QX.png) 
+    ![vscode6](https://i.imgur.com/4ESu7QX.png) 
 </details>
 
+<details>
+<summary>Visual Studio Installation: </summary>  
+    <b>note</b> : This example is run on Visual Studio 2019, it should run just fine on 2017 too.
+    
+1. Download the project and extract
+2. Inside the extracted folder open the "Memake_VisualStudio.sln"  
+    ![vs1](https://i.imgur.com/zAySyOA.png)  
+3. Press "Local Windows Debugger" to compile and run project   
+    ![vs2](https://i.imgur.com/kIdD6zO.png) 
+4. See result  
+    ![vs3](https://i.imgur.com/i44HiFl.png)
+</details>
 
+<details>
+<summary>Dev-C++ Installation: </summary>  
+    
+1. Download the project and extract
+2. Inside the extracted folder click "project.dev" to open the project in Dev-C++  
+    ![devc++1](https://i.imgur.com/H7ocRax.png)  
+3. Press "Compile and Run (F11)" to compile and run project   
+    ![devc++2](https://i.imgur.com/SO7AwoU.png) 
+4. See result  
+    ![devc++3](https://i.imgur.com/Htd0B13.png)
+</details>
 
 
 
