@@ -1,12 +1,12 @@
 # Memake
-The tighter the nicer. `Memake` is the library's name itself. Use `Colmake` for color.
+Yeet, yeet, yeet!.
 
 ```c++
 #include "Memake.h"
 Memake mmk(800, 800, "memake window");
 
 void draw() {
-    mmk.drawRect(300, 600, 80, 70, Colmake.red);
+    mmk.drawRect(300, 300, 100, 100, Colmake.red); // draw a rectangle with red color
 }
 
 int main() {
@@ -16,20 +16,40 @@ int main() {
 ```
 
 ## Dependencies
-1. SDL2: `pacman -S sdl2` || `apt-get install libsdl2-dev`
+- [SDL2](https://www.libsdl.org/)
 
-- Since I am using Arch-btw, I just copy the `apt` command from internet without testing. So, I am not sure it will work on Ubuntu or not.
+## Download
+Download project based on tools you use to run C++:
+- Manual Compile (for chad): `git clone https://github.com/krehwell/PSM-2.git`
+- Visual Studio Code: [GDrive](https://drive.google.com/uc?id=1miBk4zrwGcTGMf8Lj65ge2YUiKuP8WUz&export=download)
+- Visual Studio: [GDrive]()
+- Dev-C++: [GDrive]()
 
-## Run
-1. `git clone https://github.com/krehwell/PSM-2.git`
-2. `cd PSM-2`
-3. `make build`
-4. `./main`
 
-## Why This Exists?
-Well by default SDL never provides you function like to Draw Circle nor Ellipse or even to Draw Triangle/Polygon. What SDL provides is
-just Draw Rectangle and Draw Dot on screen. This Library can draw those 2D which SDL not provides by default. The more playground the more
-imagination can be expressed. Also hey, there is a premade colors too with `Colmake`.
+## Installation
+<details>
+<summary>Visual Studio Code (VsCode) Installation: </summary>  
+    
+    
+1. Download the project and extract.
+2. Inside the extracted folder go to `__install__` folder.  
+    ![vscode1](https://i.imgur.com/zAySyOA.png)  
+3. Move `MinGW` folder to `C:`  
+    ![vscode2](https://i.imgur.com/ev9vPj2.png) 
+4. Right click "Add MinGW to env.bat" and Run as administrator
+    ![vscode3](https://i.imgur.com/7X5sBvA.png) 
+5. Open the extracted project with vscode
+    ![vscode4](https://i.imgur.com/7X5sBvA.png) 
+6. Install C++ extension for VsCode
+    ![vscode5](https://i.imgur.com/dkXNRWW.png) 
+7. Run project by pressing F5
+    ![vscode4](https://i.imgur.com/4ESu7QX.png) 
+</details>
 
-That's all the words I made up so that it seems a perfect project like everyone's make, but what I actually want is just to graduate. Who knows that someday, somebody use this library
-to hack Elon Musk's Rocket.
+
+
+
+
+
+
+
