@@ -152,7 +152,7 @@ int main()
 </details>
 
 ### Randomize Screen Background Every X Second 
-<img src="https://i.imgur.com/Jri59qH.gif" width="35%">
+<img src="https://i.imgur.com/lCdFArn.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
     
@@ -185,7 +185,7 @@ int main()
 ```  
 </details>
 
-### Bouncing Ball Animation 
+### Clamping Ball Animation 
 <img src="https://i.imgur.com/dEMaNvI.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
@@ -276,7 +276,7 @@ int main()
 ```  
 </details>
 	
-### Go Crazy with Polygon 
+### Polygon Generator Randomizer  
 <img src="https://i.imgur.com/HVtGYwv.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
@@ -317,4 +317,100 @@ int main()
 
 ```  
 </details>
+	
+### Bouncing Balls Screensaver 
+<img src="https://i.imgur.com/TsoSPBT.gif" width="35%">
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+#include <math.h>
+
+Memake mmk(800, 800, "memake");
+
+using namespace std;
+
+class Ball {
+    public:
+        int x, y, r;
+        int dx = 1, dy = 1;
+
+        Ball(int _x, int _y, int _r) {
+            x = _x;
+            y = _y;
+            r = _r;
+        }
+
+        void update() {
+            draw();
+            checkClamp();
+            move();
+        }
+
+        void draw() {
+            mmk.drawCircle(x, y, r, Colmake.beige);
+        }
+
+        void checkCollision(Ball &b) {
+            int distX = x - b.x;
+            int distY = y - b.y;
+
+            float distance = sqrt((distX * distX) + (distY * distY));
+
+            if (distance < r + b.r) {
+                dx *= -1;
+                dy *= -1;
+            }
+        }
+
+        void move() {
+            x += dx;
+            y += dy;
+        }
+
+        void checkClamp() {
+            if (x <= 0 || x >= mmk.getScreenW()) {
+                dx *= -1;
+            }
+            if (y <= 0 || y >= mmk.getScreenH()) {
+                dy *= -1;
+            }
+        }
+
+};
+
+int main()
+{
+    int numOfBall = 24;
+    Ball b[] = {
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+	Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), 
+	Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10), Ball(random(0, 800), random(0, 800), 10),
+        Ball(random(0, 800), random(0, 800), 10)
+    };
+
+    mmk.update([&](){
+        for (int i = 0; i < numOfBall; i++) {
+            for (int j = 0; j < numOfBall; j++) {
+                // check collision between one ball to others, but don't check collision to itself
+                if (j != i) {
+                    b[i].checkCollision(b[j]);
+                }
+            }
+            b[i].update();  // update/move every ball
+        }
+
+        mmk.delay(2);
+    });
+
+    return 0;
+}
+```  
+</details>	
 
