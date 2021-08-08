@@ -151,7 +151,7 @@ int main()
 	
 </details>
 
-### Randomize Screen Background Every X second 
+### Randomize Screen Background Every X Second 
 <img src="https://i.imgur.com/Jri59qH.gif" width="35%">
 <details>
 <summary>Code snippet</summary>  
@@ -275,3 +275,46 @@ int main()
 }
 ```  
 </details>
+	
+### Go Crazy with Polygon 
+<img src="https://i.imgur.com/HVtGYwv.gif" width="35%">
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
+
+Memake mmk(800, 800, "memake");
+
+void draw() {
+    Vector2 polygon[] = {
+        {random(400, 500), random(300, 800)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(400, 500), random(300, 800)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(200, 300), random(200, 300)}, 
+        {random(200, 300), random(200, 300)},
+        {random(600, 700), random(400, 600)},
+        {random(500, 700), random(400, 500)},
+        {random(600, 600), random(400, 700)}
+    };
+		
+    mmk.drawPolygon(polygon, random(7,12), Colmake.khaki); 
+    
+    mmk.delay(600);
+}
+
+int main()
+{
+    mmk.update(draw);
+
+    return 0;
+}
+
+```  
+</details>
+
