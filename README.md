@@ -250,3 +250,28 @@ int main()
 
 ```  
 </details>
+	
+### Generate Custom Polygon 
+<img src="https://i.imgur.com/ZsuLCKI.png" width="35%">
+<details>
+<summary>Code snippet</summary>  
+    
+```c++
+#include "Memake/Memake.h"
+using namespace std;
+
+Memake mmk(800, 800, "memake");
+
+void draw() {
+    Vector2 polygon[] = {{117, 173}, {200, 300}, {364, 351}, {528, 144}, {414, 203}, {355, 63}, {277, 172}, {217, 51}, {203, 195}};
+    mmk.drawPolygon(polygon, 9, mmk.generateColor(255,102,0));  // 9 is the number of edges desired to be drawn
+}
+
+int main()
+{
+    mmk.update(draw);
+
+    return 0;
+}
+```  
+</details>
