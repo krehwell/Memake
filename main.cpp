@@ -1,62 +1,95 @@
 #define SDL_MAIN_HANDLED
 
 #include "Memake/Memake.h"
+#include <math.h>
 
-Memake mmk(800, 800, "memake");
+Memake mmk(1500, 1000, "memake");
 
 using namespace std;
 
-int width = 50;
-int mPX = 400;
-int mPY = 400;
+class Ball {
+    public:
+        Ball(){}
+        int x, y, r;
+        int dx = 1, dy = 1;
 
-void draw()
-{
-    /// Drawing Primitives
-    mmk.drawCircle(400, 200, 90, Colmake.darkslategray);
-    mmk.drawLine(550, 590, 590, 600, Colmake.azure);
-    mmk.drawEllipse(100, 500, 90, 20, Colmake.purple);
-    mmk.drawDot(400, 60, Colmake.yellowgreen);
-    mmk.drawTriangle(50, 80, 60, 50, 90, 100, Colmake.yellow);
-    mmk.drawTrapezoid(700, 695, 720, 650, 780, 644, 740, 740, Colmake.aquamarine);
-    mmk.drawEllipseBorder(300, 400, 20, 60, Colmake.burlywood);
-    mmk.drawRect(300, 600, width, 70, Colmake.red);
+        Ball(int _x, int _y, int _r) {
+            x = _x;
+            y = _y;
+            r = _r;
+        }
 
-    /// Drawing Customs
-    Vector2 polygon[] = {{140, 140}, {150, 130}, {120, 120}, {180, 120}, {200, 180}, {130, 240}};
-    mmk.drawPolygon(polygon, 6, mmk.generateColor(204, 252, 203));
-    mmk.drawPolkadot(400, 500, 450, 590);
-    mmk.drawFlower(150, 650, 50, 50, Colmake.coral, Colmake.cornsilk);
-    mmk.drawPaddle(200, 40, 50, 30, Colmake.darkcyan, Colmake.burlywood);
-    mmk.drawRadar(700, 50, 20, 8, Colmake.darkred);
-    mmk.drawFractalTree(700, 600, 70, 8, 90, 15, Colmake.bisque);
+        void update() {
+            draw();
+            checkClamp();
+            move();
+        }
 
-    /// Keyboard input
-    switch (mmk.readKeyInput())
-    {
-        case 'a':
-            width--;
-            break;
-        case 'd':
-            width++;
-            break;
-        case 's':
-            mmk.setScreenBackgroundColor(Colmake.darkred);
-            break;
-    }
+        void draw() {
+            mmk.drawCircle(x, y, r, Colmake.beige);
+        }
 
-    /// Mouse input
-    mPX = mmk.getMousePosX();
-    mPY = mmk.getMousePosY();
-    mmk.drawCircle(mPX, mPY, 30, Colmake.yellow);
-}
+        void checkCollision(Ball &b) {
+            int distX = x - b.x;
+            int distY = y - b.y;
+
+            float distance = sqrt((distX * distX) + (distY * distY));
+
+            if (distance < r + b.r) {
+                if (random(0,1)) {
+                    dy *= -1;
+                } else {
+                    dx *= -1;
+                }
+            }
+        }
+
+        void move() {
+            x += dx;
+            y += dy;
+        }
+
+        void checkClamp() {
+            if (x <= 0 || x >= mmk.getScreenW()) {
+                if (random(0,1)) {
+                    dy *= -1;
+                } else {
+                    dx *= -1;
+                }
+            }
+
+            if (y <= 0 || y >= mmk.getScreenH()) {
+                if (random(0,1)) {
+                    dy *= -1;
+                } else {
+                    dx *= -1;
+                }
+            }
+        }
+
+};
 
 int main()
 {
-    /// Memake Game Event || use lambda instead if don't want to pass a function
-    /// lambda = [&](){ ...code }
-    mmk.update(lambda{
-        mmk.drawFractalTree(400, 700, 85, 8, 90, 15, Colmake.cornsilk);
+    int numOfBall = 2000;
+    Ball b[numOfBall];
+
+    // generate ball to total X numOfBall
+    for (int i = 0; i < numOfBall; i++) {
+        b[i] = Ball(random(0, mmk.getScreenW()), random(0, mmk.getScreenH()), 2);
+    }
+
+    // animate ball
+    mmk.update([&](){
+        for (int i = 0; i < numOfBall; i++) {
+            for (int j = 0; j < numOfBall; j++) {
+                // check collision, but don't check collision to itself
+                if (j != i) {
+                    b[i].checkCollision(b[j]);
+                }
+            }
+            b[i].update();
+        }
     });
 
     return 0;
