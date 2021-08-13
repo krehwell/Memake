@@ -3,6 +3,9 @@
 #include "Memake/Memake.h"
 #include <math.h>
 
+// RAII - Testing
+#include "Memake/Timer.h"
+
 Memake mmk(1500, 1000, "memake");
 
 using namespace std;
@@ -81,15 +84,21 @@ int main()
 
     // animate ball
     mmk.update([&](){
-        for (int i = 0; i < numOfBall; i++) {
-            for (int j = 0; j < numOfBall; j++) {
-                // check collision, but don't check collision to itself
-                if (j != i) {
-                    b[i].checkCollision(b[j]);
+        {
+            Timer timer;
+
+            for (int i = 0; i < numOfBall; i++) {
+                for (int j = 0; j < numOfBall; j++) {
+                    // check collision, but don't check collision to itself
+                    if (j != i) {
+                        b[i].checkCollision(b[j]);
+                    }
                 }
+                b[i].update();
             }
-            b[i].update();
         }
+
+        cout << "one frame has ended" << endl << endl;
     });
 
     return 0;
